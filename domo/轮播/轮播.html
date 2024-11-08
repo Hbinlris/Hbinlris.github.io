@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+
+    background-color: darkgray;
+  }
+
+  .box {
+    width: 650px;
+    height: 330px;
+    /* background-color: gray; */
+    margin-top: 15px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    position: relative;
+
+    overflow: hidden;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+  }
+
+
+  .ig {
+    width: 500px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ig li {
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 1s ease-in-out;
+  }
+
+  /* 当前显示的图片 */
+  .ig li.active {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  /* 图片 */
+  li img {
+    width: 500px;
+    height: 300px;
+    display: block;
+
+    border-radius: 10px;
+
+  }
+
+
+  /* 左右键 */
+  .le,
+  .rig {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(248, 248, 255, 0.282);
+
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+  }
+
+  .le {
+    position: absolute;
+    top: 50%;
+    left: 26px;
+    transform: translate(-50%, -50%);
+  }
+
+  .rig {
+    position: absolute;
+    top: 50%;
+    right: -26px;
+    transform: translate(-50%, -50%);
+  }
+
+
+  /* 圆点 */
+  .dots {
+    width: 500px;
+    height: 20px;
+    /* background-color: aqua; */
+
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .dot {
+    width: 300px;
+    height: 20px;
+    /* background-color:thistle; */
+
+    transition: all 1s;
+
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .dot li {
+    width: 20px;
+    height: 20px;
+    background-color: rgba(128, 128, 128, 0.354);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+  }
+
+  .dot li.active {
+    background-color: red;
+  }
+</style>
+
+<body>
+  <div class="box">
+    <ul class="ig">
+      <li class="active transform">
+        <img src="./imge/希儿.png" alt="">
+      </li>
+      <li>
+        <img src="./imge/希儿2.jpg" alt="">
+      </li>
+      <li>
+        <img src="./imge/希儿3.jpg" alt="">
+      </li>
+      <li>
+        <img src="./imge/希儿4.jpg" alt="">
+      </li>
+    </ul>
+
+    <div class="le"> &lt; </div>
+    <div class="rig"> &gt; </div>
+
+    <div class="dots">
+      <ul class="dot">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</body>
+
+<script>
+  // 当文档加载完成后执行函数
+  document.addEventListener('DOMContentLoaded', function () {
+    // 获取所有的图片元素
+    const images = document.querySelectorAll('.ig li');
+    // 获取图片总数
+    const totalImages = images.length;
+    // 当前显示的图片索引
+    let currentIndex = 0;
+    // 图片宽度，用于计算 translateX 值
+    const imageWidth = 500;
+    // 定时器ID，用于控制自动播放
+    let intervalId;
+
+    // 初始化轮播图
+    function setupCarousel() {
+      // 设置每个图像的初始位置
+      images.forEach((image, index) => {
+        // 使用 translateX 将每张图片移动到对应位置
+        image.style.transform = `translateX(${index * imageWidth}px)`;
+      });
+    }
+
+    // 更新轮播图，根据方向移动到下一张或上一张图片
+    function updateCarousel(toRight) {
+      // 根据方向计算下一个索引
+      if (toRight) {
+        currentIndex = (currentIndex + 1) % totalImages;
+      } else {
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+      }
+
+      // 更新每张图片的位置
+      images.forEach((image, index) => {
+        // 计算每张图片相对于当前索引的位置，并移动
+        const translateValue = (index - currentIndex) * imageWidth;
+        image.style.transform = `translateX(${translateValue}px)`;
+      });
+
+      // 更新活动点指示器
+      document.querySelectorAll('.dot li').forEach(dot => dot.classList.remove('active'));
+      // 为当前图片的指示器添加 active 类
+      document.querySelector(`.dot li:nth-child(${currentIndex + 1})`).classList.add('active');
+    }
+
+    // 开始自动播放
+    function startAutoPlay() {
+      // 设置定时器，每隔3秒自动播放下一张图片
+      intervalId = setInterval(() => {
+        updateCarousel(true); // 默认向右移动
+      }, 3000);
+    }
+
+    // 停止自动播放
+    function stopAutoPlay() {
+      // 清除定时器
+      clearInterval(intervalId);
+    }
+
+    // 为左箭头按钮添加点击事件，向左移动图片
+    document.querySelector('.le').addEventListener('click', () => {
+      stopAutoPlay();
+      updateCarousel(false); // 向左移动
+      startAutoPlay();
+    });
+
+    // 为右箭头按钮添加点击事件，向右移动图片
+    document.querySelector('.rig').addEventListener('click', () => {
+      stopAutoPlay();
+      updateCarousel(true); // 向右移动
+      startAutoPlay();
+    });
+
+    // 为每个圆点指示器添加点击事件，跳转到对应图片
+    document.querySelectorAll('.dot li').forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        stopAutoPlay();
+        currentIndex = index;
+        updateCarousel(); // 无需方向，直接跳转到所选索引
+        startAutoPlay();
+      });
+    });
+
+    // 初始化轮播图并开始自动播放
+    setupCarousel();
+    startAutoPlay();
+  });
+</script>
+
+
+
+
+</html>

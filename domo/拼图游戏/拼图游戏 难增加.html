@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .orgin {
+            width: 300px;
+            height: 300px;
+        }
+
+        .orgin img {
+            width: 100%;
+        }
+
+        ul.stage {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            width: 300px;
+            height: 300px;
+            background-color: rgb(240, 240, 240);
+
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            padding: 10px;
+
+            position: relative;
+        }
+
+        ul.stage li {
+            width: 96px;
+            height: 96px;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 2px;
+            transition: all 0.3s;
+            border-radius: 5px;
+        }
+
+        ul.stage li.active {
+            box-shadow: 0 0 8px 0 #ff0000;
+        }
+
+        ul.stage li img {
+            width: 300%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #btn {
+            margin: 20px;
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="orgin">
+        <img src="../../作业/9.30作业手风琴/imge/希儿2.jpg" alt="" />
+    </div>
+
+    <ul class="stage"></ul>
+    <button id="btn">设置难度</button>
+
+    <script>
+        function initPuzzle(difficulty) {
+            var stage = document.querySelector(".stage");
+            stage.innerHTML = ''; // 清空现有内容
+            var stageWidth = 300; // 舞台宽度固定为300px
+            var stageHeight = 300; // 舞台高度固定为300px
+            var maxBlockSize = Math.floor(Math.min(stageWidth, stageHeight) / difficulty); // 计算拼图块的最大可能大小
+            var gap = 2; // 拼图块之间的间隙
+            var totalGapsHorizontal = (difficulty - 1) * gap; // 水平间隙总和
+            var totalGapsVertical = (difficulty - 1) * gap; // 垂直间隙总和
+            var size = (stageWidth - totalGapsHorizontal) / difficulty; // 根据舞台宽度和间隙计算拼图块大小
+
+            // 创建拼图块并添加到舞台
+            for (var i = 0; i < difficulty * difficulty; i++) {
+                var li = document.createElement('li');
+                li.style.width = size + 'px';
+                li.style.height = size + 'px';
+                li.style.position = 'absolute';
+                li.style.top = Math.floor(i / difficulty) * (size + gap) + 'px';
+                li.style.left = (i % difficulty) * (size + gap) + 'px';
+                li.innerHTML = '<img src="../../作业/9.30作业手风琴/imge/希儿2.jpg" alt="" />';
+                stage.appendChild(li);
+            }
+
+            var lis = stage.querySelectorAll("li");
+            var arr = [];
+            for (var i = 0; i < lis.length; i++) {
+                arr.push(i);
+            }
+            arr.sort(() => Math.random() - 0.5);
+
+            lis.forEach((li, index) => {
+                li.dataset.o = index;
+                li.dataset.c = arr[index];
+                li.style.top = Math.floor(li.dataset.c / difficulty) * (size + gap) + gap + "px";
+                li.style.left = (li.dataset.c % difficulty) * (size + gap) + gap + "px";
+
+                var img = li.querySelector("img");
+                img.style.width = difficulty * size + 'px';
+                img.style.height = difficulty * size + 'px';
+                img.style.position = 'absolute';
+                img.style.top = Math.floor(index / difficulty) * -size + "px";
+                img.style.left = (index % difficulty) * -size + "px";
+            });
+
+            // 处理点击事件
+            stage.onclick = function (event) {
+                var target = event.target;
+                if (target.tagName === "IMG") {
+                    target = target.parentNode;
+                }
+                if (target.tagName === "LI") {
+                    target.classList.add("active");
+                    clickedLis.push(target);
+
+                    if (clickedLis.length === 2) {
+                        setTimeout(() => {
+                            var tmp = clickedLis[0].dataset.c;
+                            clickedLis[0].dataset.c = clickedLis[1].dataset.c;
+                            clickedLis[1].dataset.c = tmp;
+
+                            clickedLis.forEach((li) => {
+                                li.style.top = Math.floor(li.dataset.c / difficulty) * (size + gap) + gap + "px";
+                                li.style.left = (li.dataset.c % difficulty) * (size + gap) + gap + "px";
+                            });
+
+                            clickedLis[0].addEventListener('transitionend', function handler() {
+                                clickedLis[0].removeEventListener('transitionend', handler);
+
+                                var isFinished = Array.prototype.slice.call(lis).every((li) => {
+                                    return li.dataset.o == li.dataset.c;
+                                });
+
+                                if (isFinished) {
+                                    alert("拼图完成");
+                                }
+
+                                clickedLis[0].classList.remove("active");
+                                clickedLis[1].classList.remove("active");
+                                clickedLis = [];
+                            });
+                        }, 300);
+                    }
+                }
+            };
+        }
+
+        // 初始化点击的拼图块数组
+        var clickedLis = [];
+
+        // 初始化拼图游戏，默认难度为3x3
+        initPuzzle(3);
+
+        // 可以通过按钮或其他方式来改变难度
+        // 当文档加载完毕后，绑定按钮点击事件
+        document.addEventListener('DOMContentLoaded', function () {
+            // 获取难度设置按钮
+            var Btn = document.getElementById('btn');
+
+            // 绑定点击事件
+            Btn.addEventListener('click', function () {
+                // 弹出对话框让用户输入难度级别
+                var difficulty = parseInt(prompt("输入难度级别(例如,3 表示 3x3,6 表示 6x6):"), 10);
+
+                // 检查用户输入是否为一个大于1的整数
+                if (!isNaN(difficulty) && difficulty > 1) {
+                    // 初始化拼图游戏，使用用户输入的难度级别
+                    initPuzzle(difficulty);
+                } else {
+                    // 输入无效
+                    alert("请输入一个大于 1 的数字。");
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

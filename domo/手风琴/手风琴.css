@@ -1,0 +1,48 @@
+.box{
+  width: 780px;
+  height: 400px;
+  box-shadow: 0 0 5px 0px #000;
+  
+  /* float: right; */
+  
+}
+
+.box1{
+  width: 60px;
+  height: 400px;
+  background-color: antiquewhite;
+  
+  float: right;
+  
+
+}
+.box2,
+.box3,
+.box4,
+.box5{
+  width: 60px;
+  height: 400px;
+  
+  float: right;
+
+  
+
+  
+}
+.box2{
+  background-color: aqua;
+}
+.box3{
+  background-color: gold;
+}
+.box4{
+  background-color: greenyellow;
+}
+.box5{
+  background-color: thistle;
+}
+
+.boxt:hover{
+  width: 480px;
+  height: 400px;
+}

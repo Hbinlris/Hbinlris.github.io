@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accordion Layout with Debounce</title>
+  <style>
+    .box {
+      display: flex;
+      width: 780px;
+      height: 400px;
+      box-shadow: 0 0 5px 0px #000;
+      margin: 0 auto;
+      background: url("./imge/深痕皮肤4k.jpg") center center;
+      background-size: cover;
+    }
+
+    .txt {
+      width: 60px;
+      height: 400px;
+      transition: width 2s;
+      box-shadow: 0 0 5px 0px #000;
+      cursor: pointer;
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .boxt {
+      width: 480px;
+    }
+
+    .box1 {
+      background-image: url("./imge/爱莉1.jpg");
+    }
+
+    .box2 {
+      background-image: url("./imge/希儿2.jpg");
+    }
+
+    .box3 {
+      background-image: url("./imge/希儿3.jpg");
+    }
+
+    .box4 {
+      background-image: url("./imge/希儿4.jpg");
+    }
+
+    .box5 {
+      background-image: url("./imge/希儿.png");
+    }
+
+    .box6 {
+      background-image: url("./imge/爱莉2.jpg");
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="box1 txt"></div>
+    <div class="box2 txt"></div>
+    <div class="box3 txt"></div>
+    <div class="box4 txt"></div>
+    <div class="box5 txt"></div>
+    <div class="box6 txt boxt"></div>
+  </div>
+
+   <script>
+    var boxes = document.querySelectorAll('.txt');
+    var currentIndex = 0; // 初始化当前索引为0，即第一个盒子
+    var timer;
+    var isAnimating = false;
+
+    function resetWidth() {
+      boxes.forEach(function (box) {
+        box.style.width = '60px';
+      });
+    }
+
+    function expandBox(index) {
+      if (isAnimating) return;
+      isAnimating = true;
+      resetWidth();
+      boxes[index].style.width = '480px';
+      setTimeout(function () {
+        isAnimating = false;
+      }, 2000); // 禁用时间为动画持续时间
+    }
+
+    function startAutoPlay() {
+      timer = setInterval(function () {
+        currentIndex = (currentIndex + 1) % boxes.length; // 正向循环索引
+        expandBox(currentIndex);
+      }, 2500); // 自动轮播间隔为 2 秒
+    }
+
+    function stopAutoPlay() {
+      clearInterval(timer);
+    }
+
+    boxes.forEach(function (box, index) {
+      box.addEventListener('mouseover', function () {
+        stopAutoPlay();
+        expandBox(index);
+        currentIndex = index;
+      });
+
+      box.addEventListener('mouseout', function () {
+        startAutoPlay();
+      });
+    });
+
+    // 初始展开第一个盒子
+    expandBox(currentIndex);
+
+    // 初始化自动轮播
+    startAutoPlay();
+  </script>
+</body>
+
+</html>
