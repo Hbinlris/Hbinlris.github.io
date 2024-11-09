@@ -22,6 +22,8 @@ body {
   background: url('../img/R-C.jpg');
   background-size: cover;
   // background-repeat: no-repeat;
+  overflow: hidden;
+
 
 
   h1 {
@@ -93,6 +95,15 @@ body {
                 position: relative;
                 transition: all 1s;
 
+                &:hover {
+
+                 .img,.imgTop{
+                  width: 400px;
+                  height: 400px;
+                 }
+
+                }
+
                 .img {
 
 
@@ -118,6 +129,41 @@ body {
                     width: 400px;
                     height: 400px;
                   }
+
+                  &:hover {
+                    width: 400px;
+                    height: 400px;
+                  }
+
+                }
+
+                .imgTop {
+
+
+                  width: 400px;
+                  height: 0;
+
+                  overflow: hidden;
+                  // transform: translate(-65%, 10%);
+
+                  transform: translate(-50%, 0);
+
+                  position: absolute;
+                  bottom: 100%;
+                  left: 50%;
+
+                  // display: none;
+                  border-radius: 10px;
+                  z-index: 10;
+
+                  transition: all 0.5s;
+
+                  img {
+                    width: 400px;
+                    height: 400px;
+                  }
+
+                  
 
                 }
 
