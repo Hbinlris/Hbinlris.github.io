@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>拖拽课程表</title>
+  <style>
+    /* styles.css */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f7f7f7;
+      display: flex;
+      justify-content: center;
+    }
+
+    .box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+
+      width: calc(100% - 40px);
+      max-width: 1000px;
+      margin: auto;
+      border: 1px solid #000;
+    }
+
+    .course-list {
+      text-align: center;
+    }
+
+
+
+    .course-list,
+    .schedule {
+      margin: 10px;
+      vertical-align: top;
+    }
+
+    .course {
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ddd;
+      cursor: move;
+      background-color: #f0f0f0;
+      /* Default color */
+    }
+
+    /* Additional colors for courses */
+    .math {
+      background-color: #f0f0f0;
+    }
+
+    .english {
+      background-color: #ffcccc;
+    }
+
+    .medicine {
+      background-color: #ccffcc;
+    }
+
+    .moral {
+      background-color: #ccccff;
+    }
+
+    .science {
+      background-color: #fff4e6;
+    }
+
+    .software {
+      background-color: #ffe6cc;
+    }
+
+    .physical {
+      background-color: #c2c2f0;
+    }
+
+    .history {
+      background-color: #e0e0e0;
+    }
+
+    .schedule table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .schedule th,
+    .schedule td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .time-slot {
+      background-color: #e8e8e8;
+      position: relative;
+    }
+
+    tr .time {
+      padding: 0;
+      background-color: #ddd;
+    }
+
+    .courseAddition {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 5px;
+
+      width: 1000px;
+    }
+
+    input {
+      margin-right: 10px;
+
+    }
+
+
+
+
+
+    /* Media query for responsiveness */
+    @media (max-width: 650px) {
+      .box {
+        flex-direction: column;
+      }
+
+      .schedule th,
+      .schedule td {
+        padding: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box" id="scheduleBox">
+    <div id="course-list" class="course-list"></div>
+    <div id="schedule" class="schedule">
+
+      <table>
+        <thead>
+          <tr>
+            <th>时间</th>
+            <th>周一</th>
+            <th>周二</th>
+            <th>周三</th>
+            <th>周四</th>
+            <th>周五</th>
+            <!-- <th>周六</th>
+            <th>周日</th> -->
+          </tr>
+        </thead>
+        <tbody id="scheduleBody">
+          <!-- 时间槽将在这里动态生成 -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="courseAddition">
+      <input type="text" value="" id="input">
+      <button>添加</button>
+    </div>
+
+  </div>
+
+
+  <script>
+    // 定义课程数据
+    const courses = JSON.parse(sessionStorage.getItem('courses')) || [
+      { name: '炼器', type: 'Refining', color: '#f0f0f0' },
+      { name: '阵法', type: 'Formations', color: '#ffcccc' },
+      { name: '灵能', type: 'PsionicEnergy', color: '#ccffcc' },
+      { name: '机械', type: 'machine', color: '#ccccff' },
+      { name: '炼丹', type: 'Alchemy', color: '#fff4e6' },
+      { name: '道法', type: 'Taoism', color: '#ffe6cc' },
+      { name: '合成', type: 'synthesis', color: '#c2c2f0' },
+      { name: '修仙', type: 'CultivatingImmortals', color: '#e0e0e0' },
+      // 其他课程...
+    ];
+
+    // 生成课程列表
+    function generateCourseList() {
+      const courseList = document.getElementById('course-list');
+      courseList.innerHTML = ''; // 清空现有的课程列表
+      courses.forEach(course => {
+        const courseElement = document.createElement('div');
+        courseElement.textContent = course.name;
+        courseElement.className = `course ${course.type}`;
+        courseElement.style.backgroundColor = course.color;
+        courseElement.draggable = true;
+        courseElement.addEventListener('dragstart', handleDragStart);
+        courseList.appendChild(courseElement);
+      });
+    }
+
+    // 生成随机颜色的函数
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    // 添加课程按钮
+    const input = document.querySelector('#input');
+    const button = document.querySelector('button');
+
+    // 获取input的value
+    button.addEventListener('click', () => {
+      const courseName = input.value;
+      // console.log(courseName);
+      input.value = '';
+
+      if (!courseName) return; // 如果输入为空，则不添加课程
+
+      // 生成随机颜色
+      const Color = getRandomColor();
+
+
+      const courseNametwo = {
+        'name': courseName,
+        'type': courseName,
+        'color': Color,
+      }
+      courses.push(courseNametwo);
+
+      // 添加新课程到页面上
+      addCourseToPage(courseNametwo);
+
+      // 保存到会话存储
+      sessionStorage.setItem('courses', JSON.stringify(courses));
+
+    })
+
+    // 添加单个课程到页面上的函数
+    function addCourseToPage(course) {
+      const courseList = document.getElementById('course-list');
+      const courseElement = document.createElement('div');
+      courseElement.textContent = course.name;
+      courseElement.className = `course ${course.type}`;
+      courseElement.style.backgroundColor = course.color;
+      courseElement.draggable = true;
+      courseElement.addEventListener('dragstart', handleDragStart);
+      courseList.appendChild(courseElement);
+
+    }
+
+
+
+
+    // 初始化时间槽
+    function initializeTimeSlots() {
+      const scheduleBody = document.getElementById('scheduleBody');
+      const timeSlots = [
+        { period: '第1节', time: '08:00-08:45' },
+        { period: '第2节', time: '09:00-09:45' },
+        { period: '第3节', time: '10:00-10:45' },
+        { period: '第4节', time: '11:00-11:45' },
+        // 添加更多时间段...
+        { period: '第5节', time: '13:00-13:45' },
+        { period: '第6节', time: '14:00-14:45' },
+        { period: '第7节', time: '15:00-15:45' },
+        { period: '第8节', time: '16:00-16:45' },
+        { period: '第9节', time: '17:00-17:45' },
+
+      ];
+
+      timeSlots.forEach((slot, index) => {
+        const row = document.createElement('tr');
+        const timeCell = document.createElement('td');
+        timeCell.textContent = `${slot.period} (${slot.time})`;
+        row.appendChild(timeCell);
+
+        for (let j = 1; j <= 5; j++) { // 假设一周5天
+          const cell = document.createElement('td');
+          cell.className = 'time-slot';
+          cell.addEventListener('dragover', handleDragOver);
+          cell.addEventListener('drop', handleDrop);
+          row.appendChild(cell);
+        }
+
+        scheduleBody.appendChild(row);
+
+        // 添加休息时间行
+        if (index === 3) { // 第四行对应于索引3
+          const restRow = document.createElement('tr');
+          const restCell = document.createElement('td');
+          restCell.textContent = '休息';
+          restCell.colSpan = 6; // 跨越所有列，包括时间列和5天
+          restRow.appendChild(restCell);
+          scheduleBody.appendChild(restRow);
+        }
+
+      });
+
+
+    }
+
+    // 保存课程表状态到会话存储
+    function saveScheduleState() {
+      const scheduleState = [];
+      const rows = document.getElementById('scheduleBody').rows;
+      for (let i = 0; i < rows.length ; i++) { // 排除休息时间行
+        const cells = rows[i].cells;
+        const rowState = [];
+        for (let j = 1; j < cells.length; j++) { // 从第二个单元格开始（第一个是时间段）
+          rowState.push(cells[j].textContent);
+        }
+        scheduleState.push(rowState);
+      }
+      sessionStorage.setItem('scheduleState', JSON.stringify(scheduleState));
+    }
+
+    // 恢复课程表状态从会话存储
+    function restoreScheduleState() {
+      const savedState = sessionStorage.getItem('scheduleState');
+      if (savedState) {
+        const scheduleState = JSON.parse(savedState);
+        const rows = document.getElementById('scheduleBody').rows;
+        scheduleState.forEach((rowState, rowIndex) => {
+          rowState.forEach((cellState, cellIndex) => {
+            if (cellState) {
+              const cell = rows[rowIndex].cells[cellIndex + 1]; // 加1跳过时间段单元格
+              cell.textContent = cellState;
+              const course = courses.find(c => c.name === cellState);
+              if (course) {
+                cell.style.backgroundColor = course.color;
+              }
+            }
+          });
+        });
+      }
+    }
+
+    // 拖动开始处理
+    function handleDragStart(e) {
+      const course = courses.find(c => c.name === e.target.textContent);
+      e.dataTransfer.setData('text/plain', JSON.stringify(course));
+    }
+
+    // 拖动覆盖处理
+    function handleDragOver(e) {
+      e.preventDefault();
+    }
+
+    // 拖动放置处理，允许覆盖旧课程，并设置颜色
+    function handleDrop(e) {
+      e.preventDefault();
+      const courseData = JSON.parse(e.dataTransfer.getData('text/plain'));
+      const cell = e.target;
+      cell.textContent = courseData.name;
+      cell.style.backgroundColor = courseData.color;
+      cell.classList.remove('time-slot');
+      saveScheduleState();
+    }
+
+    // 页面加载时初始化
+    document.addEventListener('DOMContentLoaded', () => {
+      generateCourseList();
+      initializeTimeSlots();
+      restoreScheduleState();
+    });
+  </script>
+
+</body>
+
+</html>
