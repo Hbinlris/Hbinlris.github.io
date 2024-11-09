@@ -192,7 +192,10 @@
         courseElement.className = `course ${course.type}`;
         courseElement.style.backgroundColor = course.color;
         courseElement.draggable = true;
+
+        // 为每个课程元素添加拖动开始事件监听器
         courseElement.addEventListener('dragstart', handleDragStart);
+          courseElement.addEventListener('touchstart', handleTouchStart);
         courseList.appendChild(courseElement);
       });
     }
@@ -222,7 +225,7 @@
       // 生成随机颜色
       const Color = getRandomColor();
 
-
+      // 创建新课程对象
       const courseNametwo = {
         'name': courseName,
         'type': courseName,
@@ -246,7 +249,9 @@
       courseElement.className = `course ${course.type}`;
       courseElement.style.backgroundColor = course.color;
       courseElement.draggable = true;
+       // 为每个课程元素添加拖动和触摸开始事件监听器
       courseElement.addEventListener('dragstart', handleDragStart);
+      courseElement.addEventListener('touchstart', handleTouchStart);
       courseList.appendChild(courseElement);
 
     }
@@ -364,71 +369,81 @@
     
 
 
+ 
 
+
+  // 全局变量用于存储被拖拽的课程信息
+  let draggedCourse = null;
+
+  // 触摸开始处理
+  function handleTouchStart(e) {
+    e.preventDefault();
+    const courseElement = e.target;
+    const course = courses.find(c => c.name === courseElement.textContent);
+    if (course) {
+      draggedCourse = course;
+      courseElement.classList.add('dragging');
+    }
+  }
+
+  // 触摸移动处理
+  function handleTouchMove(e) {
+    e.preventDefault();
+    if (!draggedCourse) return;
+    const touch = e.touches[0];
+    const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
+    // 确保我们只对时间槽进行操作
+    if (targetElement && targetElement.classList.contains('time-slot')) {
+      // 移除所有其他时间槽的高亮
+      document.querySelectorAll('.time-slot').forEach(cell => {
+        cell.classList.remove('over');
+      });
+      // 高亮当前触摸的时间槽
+      targetElement.classList.add('over');
+    }
+  }
+
+  // 触摸结束处理
+  function handleTouchEnd(e) {
+    e.preventDefault();
+    if (!draggedCourse) return;
+    const touch = e.changedTouches[0];
+    const targetElement = document.elementFromPoint(touch.clientX, touch.clientY);
+    if (targetElement && targetElement.classList.contains('time-slot')) {
+      // 清除旧课程
+      targetElement.textContent = '';
+      targetElement.style.backgroundColor = '';
+      targetElement.classList.remove('time-slot', 'over');
+      // 设置新课程
+      targetElement.textContent = draggedCourse.name;
+      targetElement.style.backgroundColor = draggedCourse.color;
+      // 保存新的课程表状态
+      saveScheduleState();
+    }
+    // 清除拖拽样式
+    document.querySelectorAll('.dragging').forEach(course => {
+      course.classList.remove('dragging');
+    });
+    draggedCourse = null;
+  }
+
+  // 初始化，为元素添加事件监听器
   document.addEventListener('DOMContentLoaded', () => {
     generateCourseList();
     initializeTimeSlots();
     restoreScheduleState();
 
-    // 为课程列表中的每个课程添加鼠标和触摸事件监听器
+    // 为课程列表中的每个课程添加触摸事件监听器
     document.querySelectorAll('.course').forEach(course => {
-      course.addEventListener('dragstart', handleDragStart);
       course.addEventListener('touchstart', handleTouchStart);
     });
 
-    // 为时间槽添加鼠标和触摸事件监听器
+    // 为时间槽添加触摸事件监听器
     document.querySelectorAll('.time-slot').forEach(cell => {
-      cell.addEventListener('dragover', handleDragOver);
-      cell.addEventListener('drop', handleDrop);
       cell.addEventListener('touchmove', handleTouchMove);
       cell.addEventListener('touchend', handleTouchEnd);
     });
   });
-
-  // 触摸开始处理
-    let draggedCourse = null;
-    function handleTouchStart(e) {
-      e.preventDefault();
-      const course = courses.find(c => c.name === e.target.textContent);
-      if (course) {
-        draggedCourse = course;
-        e.target.classList.add('dragging');
-      }
-    }
-
-    // 触摸移动处理
-    function handleTouchMove(e) {
-      e.preventDefault();
-      if (!draggedCourse) return;
-      const touch = e.touches[0];
-      const courseElement = document.elementFromPoint(touch.clientX, touch.clientY);
-      if (courseElement && courseElement.classList.contains('time-slot')) {
-        courseElement.classList.add('over');
-      }
-    }
-
-    // 触摸结束处理
-    function handleTouchEnd(e) {
-      e.preventDefault();
-      if (!draggedCourse) return;
-      const touch = e.changedTouches[0];
-      const courseElement = document.elementFromPoint(touch.clientX, touch.clientY);
-      if (courseElement && courseElement.classList.contains('time-slot')) {
-        courseElement.textContent = draggedCourse.name;
-        courseElement.style.backgroundColor = draggedCourse.color;
-        courseElement.classList.remove('time-slot');
-        saveScheduleState();
-      }
-      document.querySelectorAll('.course').forEach(course => {
-        course.classList.remove('dragging');
-      });
-      document.querySelectorAll('.time-slot').forEach(cell => {
-        cell.classList.remove('over');
-      });
-      draggedCourse = null;
-    }
-
-
 
 
 
