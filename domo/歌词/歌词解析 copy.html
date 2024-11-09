@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+    }
+
+    .box {
+        width: 500px;
+        height: 760px;
+        background-color: #cfcfcfb5;
+
+        border-radius: 10px;
+
+        padding-top: 20px;
+        box-sizing: border-box;
+        box-shadow: 20px 9px 20px 3px rgba(0, 0, 0, 0.342);
+
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+    }
+
+    .muiscb {
+        width: 450px;
+        height: 600px;
+        background-color: rgba(221, 212, 212, 0.467);
+        border-radius: 10px;
+
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.342) inset;
+
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    /* h3{
+        width: 300px;
+        height: 450px;
+        background-color: antiquewhite;
+        border-radius: 10px;
+
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.342);
+
+        text-align: center;
+        line-height: 450px;
+        
+    } */
+    .music {
+        width: 340px;
+        height: 500px;
+        background-color: antiquewhite;
+        border-radius: 10px;
+
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.342);
+
+        text-align: center;
+
+        padding-top: 20px;
+
+        overflow: hidden;
+        overflow-y: hidden;
+
+        position: relative;
+
+
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+
+
+
+    }
+
+    .music div {
+        width: 280px;
+        /* height: 30px; */
+        /* background-color: aqua; */
+        color: gray;
+
+        line-height: 30px;
+        transition: all 0.5s;
+
+    }
+
+    .btn {
+        width: 100px;
+        height: 40px;
+        /* background-color: aqua; */
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        font-weight: bold;
+
+
+    }
+
+    .lt,
+    .gt {
+        width: 40px;
+        height: 40px;
+        background-color: aliceblue;
+
+        text-align: center;
+        line-height: 40px;
+
+        border-radius: 20px;
+
+        cursor: pointer;
+    }
+
+    .lt:hover {
+        background-color: aqua;
+    }
+
+    .gt:hover {
+        background-color: aqua;
+    }
+
+
+    audio {
+        width: 450px;
+    }
+
+    .music .highlight {
+        color: #ffcccc;
+        font-weight: bold;
+
+    }
+</style>
+
+<body>
+    <!-- 音乐url https://music.163.com/song/media/outer/url?id=33894312.mp3 -->
+    <!-- 音乐歌词 https://apis.netstart.cn/music/lyric?id=33894312 -->
+
+    <div class="box">
+
+        <div class="muiscb">
+            <div class="music">
+
+            </div>
+        </div>
+
+        <div class="btn">
+            <div class="lt" onclick="backSong()">&lt;</div>
+            <div class="gt" onclick="forwardSong()">&gt;</div>
+        </div>
+
+        <audio id="audio" controls></audio>
+
+
+    </div>
+
+<script>
+    // 初始化歌词
+    let music = document.querySelector(".music");
+    let songList = [
+        { id: "408814661", url: "https://music.163.com/song/media/outer/url?id=408814661.mp3" },
+        { id: "1383023012", url: "https://music.163.com/song/media/outer/url?id=1383023012.mp3" },
+        { id: "1809100933", url: "https://music.163.com/song/media/outer/url?id=1809100933.mp3" },
+        { id: "1895440226", url: "https://music.163.com/song/media/outer/url?id=1895440226.mp3" },
+        { id: "2612154397", url: "https://music.163.com/song/media/outer/url?id=2612154397.mp3" },
+        { id: "2076562063", url: "https://music.163.com/song/media/outer/url?id=2076562063.mp3" },
+    ];
+    let currentSongIndex = 0;
+    let lyric = '';
+
+    // 获取歌词
+    getLyric(songList[currentSongIndex].id);
+
+    // 定义 lyricLines 变量
+    let lyricLines = [];
+    let reversedLyric = [];
+
+    // 获取歌词的函数
+    function getLyric(songId) {
+        // 歌词API URL
+        let apiUrl = `https://apis.netstart.cn/music/lyric?id=${songId}`;
+
+        // 使用fetch API获取歌词
+        fetch(apiUrl)
+            .then(response => response.json()) // 解析JSON格式的响应
+            .then(data => {
+                if (data && data.lrc && data.lrc.lyric) {
+                    // 歌词解析并显示
+                    console.log(`获取到歌词数据: ${data.lrc.lyric}`);
+                    parseLyric(data.lrc.lyric);
+                } else {
+                    console.error(`没有可用的歌词数据。歌曲ID: ${songId}`);
+                }
+            })
+            .catch(error => console.error(`获取歌词时出错: ${error}`));
+    }
+
+    // 解析歌词函数
+    function parseLyric(lyric) {
+        // 清空现有的歌词
+        music.innerHTML = '';
+
+        // 使用正则表达式来匹配时间戳和歌词文本
+        lyricLines = lyric.split('\n');
+        let lyricPattern = /\[(\d{2}):(\d{2}\.\d{3})\](.*)/;
+
+        lyricLines.forEach(function (line) {
+            let match = line.match(lyricPattern);
+            if (match) {
+                // 创建一个新的div元素用于显示歌词
+                let div = document.createElement("div");
+                div.innerText = match[3]; // 歌词文本
+                div.setAttribute('data-time', match[1] * 60 + parseFloat(match[2])); // 时间戳（秒）
+                music.appendChild(div);
+
+                // 将歌词行对象添加到 lyricLines 中
+                lyricLines.push({
+                    time: match[1] * 60 + parseFloat(match[2]),
+                    element: div
+                });
+
+                // 日志记录
+                console.log(`解析歌词: ${match[3]}, 时间: ${match[1]}:${match[2]}`);
+            }
+        });
+
+        // 反转数组，更容易找到当前播放时间对应的歌词项
+        reversedLyric = lyricLines.slice().reverse();
+    }
+
+    // 获取音频元素
+    let audio = document.querySelector("audio");
+
+    // 播放上一首歌曲的函数
+    function backSong() {
+        if (currentSongIndex > 0) {
+            currentSongIndex--;
+            audio.src = songList[currentSongIndex].url;
+            audio.play();
+            music.innerHTML = '';
+            getLyric(songList[currentSongIndex].id);
+        }
+    }
+
+    // 播放下一首歌曲的函数
+    function forwardSong() {
+        if (currentSongIndex < songList.length - 1) {
+            currentSongIndex++;
+            audio.src = songList[currentSongIndex].url;
+            audio.play();
+            music.innerHTML = '';
+            getLyric(songList[currentSongIndex].id);
+        }
+    }
+
+    // 当音频播放时间更新时触发该事件处理函数
+    audio.ontimeupdate = function () {
+        // 计算当前时间
+        let currentTime = audio.currentTime;
+
+        // 查找时间戳不超过当前音频播放时间的歌词项
+        let currentObj = reversedLyric.find(function (item) {
+            return item.time <= currentTime;
+        });
+
+        // 移除之前高亮的歌词行的样式类
+        let highlighted = music.querySelector('.highlight');
+        if (highlighted) {
+            highlighted.classList.remove('highlight');
+        }
+
+        // 更新页面上的歌词显示
+        if (currentObj && currentObj.element) {
+            // 高亮显示当前歌词行
+            currentObj.element.classList.add('highlight');
+
+            // 手动滚动歌词到视图中
+            let middle = music.clientHeight / 2;
+            let elementTop = currentObj.element.getBoundingClientRect().top - music.getBoundingClientRect().top;
+
+            // 如果歌词不在中间，则滚动歌词
+            if (elementTop < middle) {
+                music.scrollTop -= middle - elementTop;
+            } else if (elementTop > middle) {
+                music.scrollTop += elementTop - middle;
+            }
+        }
+    };
+
+    // 监听滚轮事件
+    music.addEventListener('wheel', function (event) {
+        event.preventDefault();
+        music.scrollTop += event.deltaY;
+    });
+
+    // 监听鼠标拖动事件
+    let isDragging = false;
+    let startY, startScrollTop;
+
+    music.addEventListener('mousedown', function (event) {
+        isDragging = true;
+        startY = event.pageY - music.offsetTop;
+        startScrollTop = music.scrollTop;
+        music.style.cursor = 'grabbing';
+    });
+
+    music.addEventListener('mousemove', function (event) {
+        if (!isDragging) return;
+        event.preventDefault();
+        let newY = event.pageY - music.offsetTop;
+        let scrollTop = startScrollTop + (startY - newY);
+        music.scrollTop = scrollTop;
+    });
+
+    music.addEventListener('mouseup', function () {
+        isDragging = false;
+        music.style.cursor = 'default';
+    });
+
+    music.addEventListener('mouseleave', function () {
+        isDragging = false;
+        music.style.cursor = 'default';
+    });
+</script>
+</body>
+
+</html>
