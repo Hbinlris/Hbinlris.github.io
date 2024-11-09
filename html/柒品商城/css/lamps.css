@@ -1,0 +1,1055 @@
+body {
+  margin: 0;
+  background-color: #f8f8f8;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+
+
+
+}
+
+/* 黑色登录栏 */
+.black-edition {
+  width: 100%;
+  height: 36px;
+  background-color: #333333;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* 登录版心 */
+.black-edition .login-edition {
+  width: 1200px;
+  height: 100%;
+  /* background-color: antiquewhite; */
+
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
+  /* margin: 0 auto; */
+
+
+}
+
+/* 登录/订单 */
+.login-edition .right-box {
+  width: 200px;
+  height: 30px;
+  /* background-color: aquamarine; */
+
+  display: flex;
+
+  line-height: 30px;
+  text-align: center;
+
+  color: white;
+
+}
+
+/* 左登录 */
+.right-box .left-login {
+  width: 99px;
+  height: 100%;
+  /* background-color: blue; */
+
+
+
+  border-right: 2px solid #969696;
+
+
+}
+
+/* 右订单 */
+.right-box .rightOrder {
+  width: 99px;
+  height: 100%;
+  /* background-color: blueviolet; */
+
+}
+
+
+/* logo 搜索 购物车 */
+
+.loseash {
+  width: 100%;
+  height: 140px;
+  background-color: white;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* 版心 */
+.loseash .loseash-edition {
+  width: 1200px;
+  height: 100%;
+  /* background-color: aqua; */
+
+  /* margin: 0 auto; */
+
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+
+}
+
+
+/* logo */
+.loseash-edition .logo {
+  width: 215px;
+  height: 60px;
+  /* background-color: aquamarine; */
+
+}
+
+/* 搜索 */
+.loseash-edition .search {
+  width: 400px;
+  height: 38px;
+  /* background-color: white; */
+
+  display: flex;
+  align-items: center;
+
+  position: relative;
+}
+
+.loseash-edition .search input {
+  width: 310px;
+  height: 38px;
+  /* background-color: aquamarine; */
+
+  border: 1px solid #15795b;
+
+  padding-left: 40px;
+
+  box-sizing: border-box;
+
+  border-radius: 20px 0 0 20px;
+
+
+  position: relative;
+
+}
+
+.loseash-edition .search img {
+  position: absolute;
+
+  left: 15px;
+  top: 11px;
+}
+
+.loseash-edition .search button {
+  width: 90px;
+  height: 38px;
+  background-color: #15795b;
+
+  border: none;
+  padding: 0;
+
+
+  color: white;
+  font-weight: bold;
+
+  text-align: center;
+  line-height: 38px;
+
+  border-radius: 0 20px 20px 0;
+
+}
+
+.search>button:hover {
+  background-color: #09503b;
+}
+
+
+/* 购物车 */
+.loseash-edition .shopping {
+  width: 150px;
+  height: 38px;
+  /* background-color: aquamarine; */
+
+  border: 1px solid #333333;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  box-sizing: border-box;
+
+  border-radius: 20px;
+}
+
+.shopping .shopping-cent {
+  width: 60px;
+  height: 19px;
+  /* background-color: bisque; */
+
+  text-align: center;
+  line-height: 19px;
+}
+
+.shopping .round {
+  width: 21px;
+  height: 21px;
+  background-color: red;
+
+  color: white;
+
+  text-align: center;
+  line-height: 21px;
+
+  font-weight: bold;
+
+  border-radius: 15px;
+}
+
+
+
+/* 导航栏 */
+.navigationBar {
+  width: 100%;
+  height: 70px;
+  background-color: white;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* 版心 */
+.navigationBar .nav-edition {
+  width: 1200px;
+  height: 100%;
+  /* background-color: aqua; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 导航 */
+.nav-edition .navigation {
+  width: 504px;
+  height: 21px;
+  /* background-color: antiquewhite; */
+
+
+}
+
+.navigation ul li {
+  width: 72px;
+  float: left;
+
+  text-align: center;
+
+}
+
+.lamps {
+  border-bottom: 2px solid #89d1b9;
+  box-sizing: border-box;
+}
+
+a:hover {
+  color: #89d1b9;
+}
+
+
+/* 导航路径 */
+
+.path {
+  width: 100%;
+  height: 57px;
+  /* background-color: #969696; */
+
+  display: flex;
+  justify-content: center;
+
+}
+
+.path .path-edition {
+  width: 1200px;
+  height: 100%;
+  /* background-color: antiquewhite; */
+
+  display: flex;
+  align-items: center;
+
+}
+
+.path-edition .path-txt {
+  width: 150px;
+  height: 20px;
+  /* background-color: aquamarine; */
+
+  display: flex;
+}
+
+.path-edition .path-txt>p {
+  line-height: 20px;
+  margin-right: 20px;
+  box-sizing: border-box;
+}
+
+/* 分类 */
+.classify {
+  width: 100%;
+  height: 195px;
+  /* background-color: white; */
+
+  display: flex;
+  justify-content: center;
+}
+
+/* 版心 */
+.classify .ify-edition {
+  width: 1200px;
+  height: 100%;
+  background-color: white;
+
+  padding-top: 8px;
+  padding-left: 15px;
+  box-sizing: border-box;
+
+}
+
+/* 分类选择 */
+.ify-edition .ify-classify {
+  width: 100%;
+  height: 38px;
+  /* background-color: brown; */
+
+  border-bottom: 1px solid #f5f5f5;
+
+  display: flex;
+  align-items: center;
+
+}
+
+.ify-classify>ul>li:nth-child(1) {
+  color: #89d1b9;
+}
+
+.ify-classify>ul {
+  display: flex;
+  gap: 30px;
+}
+
+
+/* 风格 */
+.ify-edition .ify-style {
+  width: 100%;
+  height: 38px;
+  /* background-color: blue; */
+  border-bottom: 1px solid #f5f5f5;
+
+  display: flex;
+  align-items: center;
+
+}
+
+.ify-style>ul>li:nth-child(1) {
+  color: #89d1b9;
+}
+
+.ify-style>ul {
+  display: flex;
+  gap: 30px;
+}
+
+/* 排序 */
+.ify-edition .ify-sort {
+  width: 100%;
+  height: 38px;
+  /* background-color: blueviolet; */
+
+  display: flex;
+  align-items: center;
+
+}
+
+.ify-edition .ify-txt {
+  margin-right: 50px;
+
+}
+
+.ify-sort>ul>li:nth-child(1) {
+  color: #89d1b9;
+}
+
+.ify-sort>ul {
+  display: flex;
+  gap: 30px;
+}
+
+
+/* 内容栏 */
+.contents {
+  width: 100%;
+  height: 3290px;
+  /* background-color: #89d1b9; */
+
+  margin-bottom: 60px;
+
+  display: flex;
+  justify-content: center
+}
+
+/* 版心 */
+.contents .contents-edition {
+  width: 1200px;
+  height: 100%;
+  background-color: white;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contents-edition .content-edit {
+  width: 1170px;
+  height: 822px;
+  /* background-color: #15795b; */
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+}
+
+/* 标题 */
+.content-edit .title {
+  width: 160px;
+  height: 55px;
+  /* background-color: gold; */
+
+  text-align: center;
+}
+
+.content-edit .title .txt {
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.content-edit .title .english {
+  font-size: 14px;
+}
+
+/* 物品 */
+.content-edit .goods {
+  width: 100%;
+  height: 725px;
+  /* background-color: blueviolet; */
+
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.content-edit .goods .goods-txt {
+  width: 270px;
+  height: 344px;
+  /* background-color: blue; */
+
+}
+
+.content-edit .goods .goods-txt:hover {
+  box-shadow: 0px 0px 15px 10px rgba(126, 125, 125, 0.574);
+}
+
+/* 图片 */
+.goods .goods-txt>.imge {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/吊灯/图像1.png");
+  background-position: -44px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge1 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/吊灯/图像2.png");
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge2 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/吊灯/图像3.png");
+  background-position: -44px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge3 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/吊灯/图像4.png");
+  background-position: -44px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge4 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/吊灯/图像5.png");
+  background-position: -44px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge5 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/吊灯/图像6.png");
+  background-position: -44px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge6 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/吊灯/图像7.png");
+  background-position: -44px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge7 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/吊灯/图像8.png");
+  background-position: -44px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge8 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/台灯/图像9.png");
+  background-position: -20px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge9 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/台灯/图像10.png");
+  background-position: -44px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge10 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/台灯/图像11.png");
+  background-position: -38px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge11 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/台灯/图像12.png");
+  background-position: -86px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge12 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/台灯/图像13.png");
+  background-position: -60px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge13 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/台灯/图像14.png");
+  background-position: -65px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge14 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/台灯/图像15.png");
+  background-position: -44px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge15 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/台灯/图像16.png");
+  background-position: -51px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge16 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/落地灯/图像17.png");
+  background-position: -65px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge17 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/落地灯/图像18.png");
+  background-position: -67px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge18 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/落地灯/图像19.png");
+  background-position: -82px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge19 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/落地灯/图像20.png");
+  background-position: -82px -4px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge20 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/落地灯/图像21.png");
+  background-position: -30px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge21 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/落地灯/图像22.png");
+  background-position: -75px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge22 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/落地灯/图像23.png");
+  background-position: -70px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge23 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/落地灯/图像24.png");
+  background-position: -62px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge24 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/灯具组合/图像25.png");
+  background-position: -20px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge25 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/灯具组合/图像26.png");
+  background-position: -44px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge26 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页//灯具组合/图像27.png");
+  background-position: -15px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge27 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/灯具组合/图像28.png");
+  background-position: -7px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge28 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/灯具组合/图像29.png");
+  background-position: -56px -1px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge29 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/灯具组合/图像30.png");
+  background-position: -50px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge30 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/灯具组合/图像31.png");
+  background-position: -66px;
+  background-repeat: no-repeat;
+}
+
+.goods .goods-txt>.imge31 {
+  width: 270px;
+  height: 270px;
+
+  /* background-color: #89d1b9; */
+
+  background-image: url("../image/切图/灯具列表页/灯具组合/图像32.png");
+  background-position: -60px;
+  background-repeat: no-repeat;
+}
+
+
+
+
+/* 文字 */
+
+.goods .goods-txt>.text {
+  width: 100%;
+  height: 74px;
+  /* background-color: antiquewhite; */
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.goods-txt>.text .l-text {
+  width: 216px;
+  height: 40px;
+  /* background-color: chocolate; */
+
+  text-align: center;
+}
+
+.l-text .x-text {
+  font-size: 14px;
+  color: #838383;
+}
+
+.l-text .num1 {
+  font-size: 14px;
+  color: red;
+}
+
+.l-text .num2 {
+  font-size: 12px;
+  color: #c6c6c6;
+}
+
+
+.goods-txt>.text .r-img {
+  width: 30px;
+  height: 30px;
+  background-color: #2d8f6f;
+
+  border-radius: 50%;
+
+  background-image: url("../image/切图/图标/购物车2.png");
+  background-repeat: no-repeat;
+  background-position: 5px;
+}
+
+
+/* 底部栏 */
+
+.bottom-column {
+  width: 100%;
+  height: 500px;
+  /* background-color: blueviolet; */
+
+}
+
+/* 上 */
+.bottom-column .column-top {
+  width: 100%;
+  height: 420px;
+  background-color: black;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* 版心 */
+.column-top .edition {
+  width: 1200px;
+  height: 100%;
+  /* background-color: coral; */
+
+
+}
+
+/* 服务 */
+.column-top .edition .serve {
+  width: 100%;
+  height: 180px;
+  /* background-color: blue; */
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  border-bottom: 1px solid gray;
+
+  box-sizing: border-box;
+
+}
+
+.serve .seven {
+  width: 115px;
+  height: 80px;
+  /* background-color: bisque; */
+}
+
+.serve .seven>p {
+  margin-top: 2px;
+  text-align: center;
+  color: white;
+
+  /* background-color: #15795b; */
+}
+
+.seven .img3 {
+  width: 115px;
+  height: 50px;
+
+  background-image: url("../image/切图/图标/绿色环保.png");
+  background-repeat: no-repeat;
+  background-position: 31px;
+}
+
+.seven .img4 {
+  width: 115px;
+  height: 50px;
+
+  background-image: url("../image/切图/图标/天猫-极速退款.png");
+  background-repeat: no-repeat;
+  background-position: 31px;
+}
+
+.seven .img5 {
+  width: 115px;
+  height: 50px;
+
+  background-image: url("../image/切图/图标/配送安装\(1\).png");
+  background-repeat: no-repeat;
+  background-position: 31px;
+}
+
+.seven .img6 {
+  width: 115px;
+  height: 50px;
+
+  background-image: url("../image/切图/图标/退货保障.png");
+  background-repeat: no-repeat;
+  background-position: 31px;
+}
+
+.seven .img7 {
+  width: 115px;
+  height: 50px;
+
+  background-image: url("../image/切图/图标/送货上门.png");
+  background-repeat: no-repeat;
+  background-position: 31px;
+}
+
+/* 关于 */
+.column-top .edition .concerning {
+  width: 100%;
+  height: 240px;
+  /* background-color: thistle; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.concerning .edit {
+  width: 955px;
+  height: 210px;
+  /* background-color: chartreuse; */
+
+  display: flex;
+  justify-content: space-between;
+
+
+}
+
+.edit .l-edit {
+  width: 215px;
+  height: 60px;
+  /* background-color: antiquewhite; */
+
+
+
+  background-image: url("../image/切图/logo.png");
+  background-repeat: no-repeat;
+}
+
+.edit .r-edit {
+  width: 610px;
+  height: 210px;
+  /* background-color: antiquewhite; */
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit .r-edit .re-four {
+  width: 96px;
+  height: 165px;
+  /* background-color: blueviolet; */
+
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+}
+
+.r-edit .re-four>.title {
+  font-weight: bold;
+}
+
+
+
+/* 下 */
+.bottom-column .column-bottom {
+  width: 100%;
+  height: 80px;
+  background-color: #969696;
+
+  display: flex;
+  justify-content: center;
+}
+
+.column-bottom .edition {
+  width: 1200px;
+  height: 100%;
+  /* background-color: #89d1b9; */
+
+}
+
+.column-bottom .edition .bo-txt {
+  text-align: center;
+  line-height: 80px;
+
+  color: white;
+}

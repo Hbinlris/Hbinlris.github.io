@@ -1,0 +1,813 @@
+body {
+  margin: 0;
+  background-color: #f8f8f8;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+
+
+
+}
+
+/* 黑色登录栏 */
+.black-edition {
+  width: 100%;
+  height: 36px;
+  background-color: #333333;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* 登录版心 */
+.black-edition .login-edition {
+  width: 1200px;
+  height: 100%;
+  /* background-color: antiquewhite; */
+
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
+  /* margin: 0 auto; */
+
+
+}
+
+/* 登录/订单 */
+.login-edition .right-box {
+  width: 200px;
+  height: 30px;
+  /* background-color: aquamarine; */
+
+  display: flex;
+
+  line-height: 30px;
+  text-align: center;
+
+  color: white;
+
+}
+
+/* 左登录 */
+.right-box .left-login {
+  width: 99px;
+  height: 100%;
+  /* background-color: blue; */
+
+
+
+  border-right: 2px solid #969696;
+
+
+}
+
+/* 右订单 */
+.right-box .rightOrder {
+  width: 99px;
+  height: 100%;
+  /* background-color: blueviolet; */
+
+}
+
+
+/* logo 搜索 购物车 */
+
+.loseash {
+  width: 100%;
+  height: 140px;
+  background-color: white;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* 版心 */
+.loseash .loseash-edition {
+  width: 1200px;
+  height: 100%;
+  /* background-color: aqua; */
+
+  /* margin: 0 auto; */
+
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+
+}
+
+
+/* logo */
+.loseash-edition .logo {
+  width: 215px;
+  height: 60px;
+  /* background-color: aquamarine; */
+
+}
+
+/* 搜索 */
+.loseash-edition .search {
+  width: 400px;
+  height: 38px;
+  /* background-color: white; */
+
+  display: flex;
+  align-items: center;
+
+  position: relative;
+}
+
+.loseash-edition .search input {
+  width: 310px;
+  height: 38px;
+  /* background-color: aquamarine; */
+
+  border: 1px solid #15795b;
+
+  padding-left: 40px;
+
+  box-sizing: border-box;
+
+  border-radius: 20px 0 0 20px;
+
+
+  position: relative;
+
+}
+
+.loseash-edition .search img {
+  position: absolute;
+
+  left: 15px;
+  top: 11px;
+}
+
+.loseash-edition .search button {
+  width: 90px;
+  height: 38px;
+  background-color: #15795b;
+
+  border: none;
+  padding: 0;
+
+
+  color: white;
+  font-weight: bold;
+
+  text-align: center;
+  line-height: 38px;
+
+  border-radius: 0 20px 20px 0;
+
+}
+
+.search>button:hover {
+  background-color: #09503b;
+}
+
+
+/* 购物车 */
+.loseash-edition .shopping {
+  width: 150px;
+  height: 38px;
+  /* background-color: aquamarine; */
+
+  border: 1px solid #333333;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  box-sizing: border-box;
+
+  border-radius: 20px;
+}
+
+.shopping .shopping-cent {
+  width: 60px;
+  height: 19px;
+  /* background-color: bisque; */
+
+  text-align: center;
+  line-height: 19px;
+}
+
+.shopping .round {
+  width: 21px;
+  height: 21px;
+  background-color: red;
+
+  color: white;
+
+  text-align: center;
+  line-height: 21px;
+
+  font-weight: bold;
+
+  border-radius: 15px;
+}
+
+
+
+/* 导航栏 */
+.navigationBar {
+  width: 100%;
+  height: 70px;
+  background-color: white;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* 版心 */
+.navigationBar .nav-edition {
+  width: 1200px;
+  height: 100%;
+  /* background-color: aqua; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 导航 */
+.nav-edition .navigation {
+  width: 504px;
+  height: 21px;
+  /* background-color: antiquewhite; */
+
+
+}
+
+.navigation ul li {
+  width: 72px;
+  float: left;
+
+  text-align: center;
+
+}
+
+.furniture {
+  border-bottom: 2px solid #89d1b9;
+  box-sizing: border-box;
+}
+
+a:hover {
+  color: #89d1b9;
+}
+
+
+/* 导航路径 */
+
+.path {
+  width: 100%;
+  height: 57px;
+  /* background-color: #969696; */
+
+  display: flex;
+  justify-content: center;
+
+}
+
+.path .path-edition {
+  width: 1200px;
+  height: 100%;
+  /* background-color: antiquewhite; */
+
+  display: flex;
+  align-items: center;
+
+}
+
+.path-edition .path-txt {
+  width: 150px;
+  height: 20px;
+  /* background-color: aquamarine; */
+
+  display: flex;
+}
+
+.path-edition .path-txt>p {
+  line-height: 20px;
+  margin-right: 20px;
+  box-sizing: border-box;
+}
+
+/* 分类 */
+.classify {
+  width: 100%;
+  height: 195px;
+  /* background-color: white; */
+
+  display: flex;
+  justify-content: center;
+}
+
+/* 版心 */
+.classify .ify-edition {
+  width: 1200px;
+  height: 100%;
+  background-color: white;
+
+  padding-top: 8px;
+  padding-left: 15px;
+  box-sizing: border-box;
+
+}
+
+/* 分类选择 */
+.ify-edition .ify-classify {
+  width: 100%;
+  height: 38px;
+  /* background-color: brown; */
+
+  border-bottom: 1px solid #f5f5f5;
+
+  display: flex;
+  align-items: center;
+
+}
+
+.ify-classify>ul>li:nth-child(2) {
+  color: #89d1b9;
+}
+
+.ify-classify>ul {
+  display: flex;
+  gap: 30px;
+}
+
+
+/* 风格 */
+.ify-edition .ify-style {
+  width: 100%;
+  height: 38px;
+  /* background-color: blue; */
+  border-bottom: 1px solid #f5f5f5;
+
+  display: flex;
+  align-items: center;
+
+}
+
+.ify-style>ul>li:nth-child(1) {
+  color: #89d1b9;
+}
+
+.ify-style>ul {
+  display: flex;
+  gap: 30px;
+}
+
+/* 排序 */
+.ify-edition .ify-sort {
+  width: 100%;
+  height: 38px;
+  /* background-color: blueviolet; */
+
+  display: flex;
+  align-items: center;
+
+}
+
+.ify-edition .ify-txt {
+  margin-right: 50px;
+
+}
+
+.ify-sort>ul>li:nth-child(1) {
+  color: #89d1b9;
+}
+
+.ify-sort>ul {
+  display: flex;
+  gap: 30px;
+}
+
+/* 内容 */
+.content{
+  width: 100%;
+  height: 1616px;
+  /* background-color: cornflowerblue; */
+
+  margin-bottom: 60px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.content .cont-edition{
+  width: 1200px;
+  height: 100%;
+  /* background-color: coral; */
+
+  display: flex;
+  justify-content: center;
+}
+
+/* 物品 */
+.content .cont-edition .goods{
+  width: 1170px;
+  height: 100%;
+  /* background-color: #15795b; */
+
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.goods .goods-txt{
+  width: 270px;
+  height: 344px;
+  /* background-color: blue; */
+}
+
+.goods .goods-txt:hover{
+  box-shadow: 0px 0px 15px 10px rgba(126, 125, 125, 0.574);
+}
+
+.goods-txt>.imge{
+  width: 270px;
+  height: 270px;
+  /* background-color: antiquewhite; */
+
+  background-image: url("../image/切图/家具列表页/摄图网_500793810.png");
+  background-position: -100px;
+}
+
+.goods-txt>.imge1{
+  width: 270px;
+  height: 270px;
+  /* background-color: antiquewhite; */
+
+  background-image: url("../image/切图/家具列表页/图层1036.png");
+  background-position: -100px;
+}
+
+.goods-txt>.imge2{
+  width: 270px;
+  height: 270px;
+  /* background-color: antiquewhite; */
+
+  background-image: url("../image/切图/家具列表页/图层1037.png");
+  background-position: -100px;
+}
+
+.goods-txt>.imge3{
+  width: 270px;
+  height: 270px;
+  /* background-color: antiquewhite; */
+
+  background-image: url("../image/切图/家具列表页/图层1038.png");
+  background-position: -20px;
+}
+
+.goods-txt>.imge4{
+  width: 270px;
+  height: 270px;
+  /* background-color: antiquewhite; */
+
+  background-image: url("../image/切图/家具列表页/图层1039.png");
+  background-position: -50px;
+}
+
+.goods-txt>.imge5{
+  width: 270px;
+  height: 270px;
+  /* background-color: antiquewhite; */
+
+  background-image: url("../image/切图/家具列表页/图层1040.png");
+  background-position: -60px;
+}
+
+.goods-txt>.imge6{
+  width: 270px;
+  height: 270px;
+  /* background-color: antiquewhite; */
+
+  background-image: url("../image/切图/家具列表页/图层1041.png");
+  background-position: -11px;
+}
+
+.goods-txt>.imge7{
+  width: 270px;
+  height: 270px;
+  /* background-color: antiquewhite; */
+
+  background-image: url("../image/切图/家具列表页/图层1042.png");
+  background-position: -13px;
+}
+
+.goods-txt>.imge8{
+  width: 270px;
+  height: 270px;
+  /* background-color: antiquewhite; */
+
+  background-image: url("../image/切图/家具列表页/图层1043.png");
+  background-position: -20px;
+}
+
+.goods-txt>.imge9{
+  width: 270px;
+  height: 270px;
+  /* background-color: antiquewhite; */
+
+  background-image: url("../image/切图/家具列表页/图层1044.png");
+  background-position: -25px;
+}
+
+.goods-txt>.imge10{
+  width: 270px;
+  height: 270px;
+  /* background-color: antiquewhite; */
+
+  background-image: url("../image/切图/家具列表页/图层1045.png");
+  background-position: -10px;
+}
+
+.goods-txt>.imge11{
+  width: 270px;
+  height: 270px;
+  /* background-color: antiquewhite; */
+
+  background-image: url("../image/切图/家具列表页/图层1046.png");
+  background-position: -70px;
+}
+
+.goods-txt>.imge12{
+  width: 270px;
+  height: 270px;
+  /* background-color: antiquewhite; */
+
+  background-image: url("../image/切图/家具列表页/图层1047.png");
+  background-position: -80px;
+}
+
+.goods-txt>.imge13{
+  width: 270px;
+  height: 270px;
+  /* background-color: antiquewhite; */
+
+  background-image: url("../image/切图/家具列表页/图层1048.png");
+  background-position: -52px;
+}
+
+.goods-txt>.imge14{
+  width: 270px;
+  height: 270px;
+  /* background-color: antiquewhite; */
+
+  background-image: url("../image/切图/家具列表页/图层1049.png");
+  background-position: -14px;
+}
+
+.goods-txt>.imge15{
+  width: 270px;
+  height: 270px;
+  /* background-color: antiquewhite; */
+
+  background-image: url("../image/切图/家具列表页/图层1050.png");
+  background-position: -13px;
+}
+
+
+
+
+/* 文字 */
+.goods-txt>.text {
+  width: 100%;
+  height: 74px;
+  /* background-color: #fad7ee; */
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.goods-txt>.text .l-text {
+  width: 216px;
+  height: 40px;
+  /* background-color: chocolate; */
+
+  text-align: center;
+}
+
+.l-text .x-text {
+  font-size: 14px;
+  color: #838383;
+}
+
+.l-text .num1 {
+  font-size: 14px;
+  color: red;
+}
+
+.l-text .num2 {
+  font-size: 12px;
+  color: #c6c6c6;
+}
+
+
+.goods-txt>.text .r-img {
+  width: 30px;
+  height: 30px;
+  background-color: #2d8f6f;
+
+  border-radius: 50%;
+
+  background-image: url("../image/切图/图标/购物车2.png");
+  background-repeat: no-repeat;
+  background-position: 5px;
+}
+
+
+/* 底部栏 */
+
+.bottom-column {
+  width: 100%;
+  height: 500px;
+  /* background-color: blueviolet; */
+
+}
+
+/* 上 */
+.bottom-column .column-top {
+  width: 100%;
+  height: 420px;
+  background-color: black;
+
+  display: flex;
+  justify-content: center;
+}
+
+/* 版心 */
+.column-top .edition {
+  width: 1200px;
+  height: 100%;
+  /* background-color: coral; */
+
+
+}
+
+/* 服务 */
+.column-top .edition .serve {
+  width: 100%;
+  height: 180px;
+  /* background-color: blue; */
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  border-bottom: 1px solid gray;
+
+  box-sizing: border-box;
+
+}
+
+.serve .seven {
+  width: 115px;
+  height: 80px;
+  /* background-color: bisque; */
+}
+
+.serve .seven>p {
+  margin-top: 2px;
+  text-align: center;
+  color: white;
+
+  /* background-color: #15795b; */
+}
+
+.seven .img3 {
+  width: 115px;
+  height: 50px;
+
+  background-image: url("../image/切图/图标/绿色环保.png");
+  background-repeat: no-repeat;
+  background-position: 31px;
+}
+
+.seven .img4 {
+  width: 115px;
+  height: 50px;
+
+  background-image: url("../image/切图/图标/天猫-极速退款.png");
+  background-repeat: no-repeat;
+  background-position: 31px;
+}
+
+.seven .img5 {
+  width: 115px;
+  height: 50px;
+
+  background-image: url("../image/切图/图标/配送安装\(1\).png");
+  background-repeat: no-repeat;
+  background-position: 31px;
+}
+
+.seven .img6 {
+  width: 115px;
+  height: 50px;
+
+  background-image: url("../image/切图/图标/退货保障.png");
+  background-repeat: no-repeat;
+  background-position: 31px;
+}
+
+.seven .img7 {
+  width: 115px;
+  height: 50px;
+
+  background-image: url("../image/切图/图标/送货上门.png");
+  background-repeat: no-repeat;
+  background-position: 31px;
+}
+
+/* 关于 */
+.column-top .edition .concerning {
+  width: 100%;
+  height: 240px;
+  /* background-color: thistle; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.concerning .edit {
+  width: 955px;
+  height: 210px;
+  /* background-color: chartreuse; */
+
+  display: flex;
+  justify-content: space-between;
+
+
+}
+
+.edit .l-edit {
+  width: 215px;
+  height: 60px;
+  /* background-color: antiquewhite; */
+
+
+
+  background-image: url("../image/切图/logo.png");
+  background-repeat: no-repeat;
+}
+
+.edit .r-edit {
+  width: 610px;
+  height: 210px;
+  /* background-color: antiquewhite; */
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit .r-edit .re-four {
+  width: 96px;
+  height: 165px;
+  /* background-color: blueviolet; */
+
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+}
+
+.r-edit .re-four>.title {
+  font-weight: bold;
+}
+
+
+
+/* 下 */
+.bottom-column .column-bottom {
+  width: 100%;
+  height: 80px;
+  background-color: #969696;
+
+  display: flex;
+  justify-content: center;
+}
+
+.column-bottom .edition {
+  width: 1200px;
+  height: 100%;
+  /* background-color: #89d1b9; */
+
+}
+
+.column-bottom .edition .bo-txt {
+  text-align: center;
+  line-height: 80px;
+
+  color: white;
+}
