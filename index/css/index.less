@@ -18,12 +18,28 @@ ul {
   margin: 0;
 }
 
+
+
 body {
   background: url('../img/R-C.jpg');
   background-size: cover;
   // background-repeat: no-repeat;
-  overflow: hidden;
-  
+
+  .scrollable-element {
+    overflow-y: hidden;
+    /* 允许垂直方向滚动，如果需要的话 */
+    overflow-x: hidden;
+    /* 隐藏水平滚动条 */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+
+    /* Chrome, Safari, Opera */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 
   h1 {
     text-align: center;
@@ -96,10 +112,11 @@ body {
 
                 &:hover {
 
-                 .img,.imgTop{
-                  width: 400px;
-                  height: 400px;
-                 }
+                  .img,
+                  .imgTop {
+                    width: 400px;
+                    height: 400px;
+                  }
 
                 }
 
@@ -162,7 +179,7 @@ body {
                     height: 400px;
                   }
 
-                  
+
 
                 }
 
