@@ -2,11 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>拖拽课程表</title>
   <style>
-    /* styles.css */
+  
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -49,7 +49,7 @@
       /* Default color */
     }
 
-    /* Additional colors for courses */
+    /* 课程的其他颜色 */
     .math {
       background-color: #f0f0f0;
     }
@@ -121,7 +121,7 @@
 
 
 
-    /* Media query for responsiveness */
+    /*媒体查询*/
     @media (max-width: 650px) {
       .box {
         flex-direction: column;
@@ -155,7 +155,7 @@
           </tr>
         </thead>
         <tbody id="scheduleBody">
-          <!-- 时间槽将在这里动态生成 -->
+          
         </tbody>
       </table>
     </div>
@@ -179,7 +179,7 @@
       { name: '道法', type: 'Taoism', color: '#ffe6cc' },
       { name: '合成', type: 'synthesis', color: '#c2c2f0' },
       { name: '修仙', type: 'CultivatingImmortals', color: '#e0e0e0' },
-      // 其他课程...
+      
     ];
 
     // 生成课程列表
@@ -262,7 +262,7 @@
         { period: '第2节', time: '09:00-09:45' },
         { period: '第3节', time: '10:00-10:45' },
         { period: '第4节', time: '11:00-11:45' },
-        // 添加更多时间段...
+      
         { period: '第5节', time: '13:00-13:45' },
         { period: '第6节', time: '14:00-14:45' },
         { period: '第7节', time: '15:00-15:45' },
@@ -277,7 +277,7 @@
         timeCell.textContent = `${slot.period} (${slot.time})`;
         row.appendChild(timeCell);
 
-        for (let j = 1; j <= 5; j++) { // 假设一周5天
+        for (let j = 1; j <= 5; j++) { // 一周5天
           const cell = document.createElement('td');
           cell.className = 'time-slot';
           cell.addEventListener('dragover', handleDragOver);
@@ -288,7 +288,7 @@
         scheduleBody.appendChild(row);
 
         // 添加休息时间行
-        if (index === 3) { // 第四行对应于索引3
+        if (index === 3) { 
           const restRow = document.createElement('tr');
           const restCell = document.createElement('td');
           restCell.textContent = '休息';
@@ -309,7 +309,7 @@
       for (let i = 0; i < rows.length ; i++) { // 排除休息时间行
         const cells = rows[i].cells;
         const rowState = [];
-        for (let j = 1; j < cells.length; j++) { // 从第二个单元格开始（第一个是时间段）
+        for (let j = 1; j < cells.length; j++) { 
           rowState.push(cells[j].textContent);
         }
         scheduleState.push(rowState);
@@ -326,7 +326,7 @@
         scheduleState.forEach((rowState, rowIndex) => {
           rowState.forEach((cellState, cellIndex) => {
             if (cellState) {
-              const cell = rows[rowIndex].cells[cellIndex + 1]; // 加1跳过时间段单元格
+              const cell = rows[rowIndex].cells[cellIndex + 1]; // 跳过时间段单元格
               cell.textContent = cellState;
               const course = courses.find(c => c.name === cellState);
               if (course) {

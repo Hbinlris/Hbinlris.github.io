@@ -2,11 +2,11 @@
 <html lang="zh-CN">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>拖拽课程表</title>
   <style>
-    /* styles.css */
+
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -48,7 +48,7 @@
       /* Default color */
     }
 
-    /* Additional colors for courses */
+    /* 课程的其他颜色*/
     .math {
       background-color: #f0f0f0;
     }
@@ -121,7 +121,7 @@
 
 
 
-    /* Media query for responsiveness */
+    /* 媒体查询 */
     @media (max-width: 650px) {
       .box {
         flex-direction: column;
@@ -154,7 +154,7 @@
           </tr>
         </thead>
         <tbody id="scheduleBody">
-          <!-- 时间槽将在这里动态生成 -->
+        
         </tbody>
       </table>
     </div>
@@ -180,7 +180,7 @@
       { name: '道法', type: 'Taoism', color: '#ffe6cc' },
       { name: '合成', type: 'synthesis', color: '#c2c2f0' },
       { name: '修仙', type: 'CultivatingImmortals', color: '#e0e0e0' },
-      // 其他课程...
+      
     ];
 
     // 生成课程列表的函数
@@ -268,7 +268,7 @@
         { period: '第2节', time: '09:00-09:45' },
         { period: '第3节', time: '10:00-10:45' },
         { period: '第4节', time: '11:00-11:45' },
-        // 添加更多时间段...
+
         { period: '第5节', time: '13:00-13:45' },
         { period: '第6节', time: '14:00-14:45' },
         { period: '第7节', time: '15:00-15:45' },
@@ -295,11 +295,11 @@
         scheduleBody.appendChild(row); // 将行添加到时间槽容器中
 
         // 在每4个时间段后添加一个休息时间行
-        if (index === 3) { // 第四行对应于索引3
+        if (index === 3) { 
           const restRow = document.createElement('tr');
           const restCell = document.createElement('td');
-          restCell.textContent = '休息'; // 设置休息时间文本
-          restCell.colSpan = 6; // 跨越所有列，包括时间列和5天
+          restCell.textContent = '休息'; 
+          restCell.colSpan = 6; 
           restRow.appendChild(restCell);
           scheduleBody.appendChild(restRow);
         }
