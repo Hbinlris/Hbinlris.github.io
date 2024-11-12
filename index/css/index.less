@@ -19,27 +19,38 @@ ul {
 }
 
 
+/* 全局滚动条样式 */
+::-webkit-scrollbar {
+  width: 0;
+  /* 滚动条宽度 */
+}
+
+/* 滚动条轨道 */
+::-webkit-scrollbar-track {
+  background: #bce1ef;
+  /* 滚动条轨道颜色 */
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  background: #88888847;
+  /* 滚动条滑块颜色 */
+  border-radius: 6px;
+  /* 滚动条滑块圆角 */
+}
+
+/* 滚动条滑块hover状态 */
+::-webkit-scrollbar-thumb:hover {
+  background: #8e8e8e;
+  /* 滚动条滑块hover颜色 */
+}
 
 body {
   background: url('../img/R-C.jpg');
   background-size: cover;
   // background-repeat: no-repeat;
 
-  .scrollable-element {
-    overflow-y: hidden;
-    /* 允许垂直方向滚动，如果需要的话 */
-    overflow-x: hidden;
-    /* 隐藏水平滚动条 */
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
 
-    /* Chrome, Safari, Opera */
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
 
   h1 {
     text-align: center;
