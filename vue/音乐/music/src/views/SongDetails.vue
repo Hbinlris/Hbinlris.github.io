@@ -123,7 +123,7 @@ export default {
 
       column: false,
 
-      // localPlayedSongs: [],
+
     };
   },
   created: function () {
@@ -137,9 +137,6 @@ export default {
         this.song = res.data.songs[0];
       });
 
-    this.loadPlayedSongs();
-    // 创建本地响应式副本
-    this.localPlayedSongs = [...this.playedSongs];
   },
   watch: {
     currentTime: function (currentTime) {
@@ -183,12 +180,7 @@ export default {
       this.column = !this.column;
       // console.log("column:", this.column);
     },
-    // loadPlayedSongs() {
-    //   const storedSongs = localStorage.getItem("playedSongs");
-    //   if (storedSongs) {
-    //     this.loadPlayedSongs = JSON.parse(storedSongs);
-    //   }
-    // },
+   
   },
 
   computed: {},
