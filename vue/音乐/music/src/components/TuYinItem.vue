@@ -1,6 +1,6 @@
 <template>
-<!-- 编辑推荐 -->
-  <li class="playlist-tuyin" :class="{ col3: col === 3, col2: col === 2 }" >
+  <!-- 编辑推荐 -->
+  <li class="playlist-tuyin" :class="{ col3: col === 3, col2: col === 2 }">
     <router-link :to="`/tuyintwo?id=${item.id}`">
       <div class="tuyin-box">
         <div class="image">
@@ -10,9 +10,9 @@
           />
         </div>
 
-        <span class="num">{{ item.playCount }}</span>
+        <span class="num">{{ formattedPlayCount  }}</span>
       </div>
-      <div class="txt" >{{ item.name }}</div>
+      <div class="txt">{{ item.name }}</div>
     </router-link>
 
     <router-view />
@@ -28,6 +28,12 @@ export default {
   },
 
   methods: {},
+
+  computed: {
+    formattedPlayCount() {
+      return (this.item.playCount / 10000).toFixed(1) + '万';
+    }
+  },
 };
 </script>
 
@@ -44,8 +50,6 @@ export default {
   .tuyin-box {
     position: relative;
     .image {
-
-      
       img {
         width: 100%;
 

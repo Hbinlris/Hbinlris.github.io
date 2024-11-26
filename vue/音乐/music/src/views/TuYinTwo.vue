@@ -56,6 +56,7 @@ export default {
       this.axios
         .get("playlist/detail", {
           params: { id: this.$route.query.id },
+
         })
         .then((response) => {
           console.log(response.data);
@@ -109,7 +110,7 @@ export default {
   }
 
   .return {
-    width: 100%;
+    // width: 100%;
     height: 25px;
     background-color: #0000194f;
     padding-left: 10px;

@@ -1,6 +1,12 @@
 <template>
   <!-- 音乐详情 -->
-  <div class="SongDetails" v-if="song">
+  <div
+    class="SongDetails"
+    v-if="song"
+    :style="{
+      backgroundImage: `url(${song.song ? song.picUrl : song.al.picUrl})`,
+    }"
+  >
     <div class="box">
       <div class="return" @click="gotorecommend"></div>
 
@@ -30,7 +36,6 @@
         :duration="duration"
         :playing="playing"
         @hide-lyric="hideLyric"
-
       ></SongLyric>
 
       <div class="song-time">
@@ -49,6 +54,7 @@
               inputing = false;
               $emit('change-play-time', userValue);
             "
+            
           />
         </div>
         <div class="num">
@@ -122,21 +128,21 @@ export default {
       showLyric: false,
 
       column: false,
-
-
     };
   },
   created: function () {
     this.axios
       .get("/song/detail", {
         params: {
-          ids: this.currentid,
+          ids: this.$route.query.id,
         },
       })
       .then((res) => {
         this.song = res.data.songs[0];
+      })
+      .catch((error) => {
+        console.error("111加载歌曲详细信息时出错:", error);
       });
-
   },
   watch: {
     currentTime: function (currentTime) {
@@ -147,20 +153,20 @@ export default {
 
     currentid: function (newId, oldId) {
       if (newId !== oldId) {
-       if (this.currentid) {
-        this.axios
-          .get("/song/detail", {
-            params: {
-              ids: this.currentid,
-            },
-          })
-          .then((res) => {
-            this.song = res.data.songs[0];
-          })
-          .catch((error) => {
-            console.error("Error loading song details:", error);
-          });
-      }
+        if (this.currentid) {
+          this.axios
+            .get("/song/detail", {
+              params: {
+                ids: this.currentid,
+              },
+            })
+            .then((res) => {
+              this.song = res.data.songs[0];
+            })
+            .catch((error) => {
+              console.error("加载歌曲详细信息时出错:", error);
+            });
+        }
       }
     },
   },
@@ -180,7 +186,8 @@ export default {
       this.column = !this.column;
       // console.log("column:", this.column);
     },
-   
+
+
   },
 
   computed: {},
@@ -197,15 +204,16 @@ export default {
   align-items: center;
   flex-direction: column-reverse;
 
-  background-color: #9a9a9a;
-
   .box {
     width: 100%;
-    height: 80vh;
+    height: 100vh;
     // background-color: aqua;
 
+    background: rgba(0, 0, 0, 0.2); /* 半透明背景 */
+    backdrop-filter: blur(10px); /* 背景模糊效果 */
+
     .return {
-      width: 100%;
+      // width: 100%;
       height: 25px;
       // background-color: #ffffff73;
       font-size: 30px;
@@ -213,7 +221,8 @@ export default {
 
       color: #fafafa;
 
-      padding: 10px 5px;
+      padding: 10px 20px;
+      margin-top: 20px;
 
       &::before {
         content: "←";
@@ -282,6 +291,7 @@ export default {
             padding: 10px 0 5px 0;
             font-size: 20px;
             font-weight: bold;
+            color: white;
           }
           .songwriter {
             font-size: 12px;
@@ -300,6 +310,7 @@ export default {
       width: 100%;
       // height: 10vh;
       // background-color: #fafafa;
+      color: white;
 
       padding: 15px 0;
       display: flex;
@@ -359,7 +370,8 @@ export default {
         width: 95%;
         height: 50px;
         // background-color: orange;
-        color: #1f1f1f;
+        // color: #1f1f1f;
+        color: white;
 
         font-size: 35px;
 
@@ -377,7 +389,8 @@ export default {
           span {
             width: 5px;
             height: 35px;
-            background-color: #1f1f1f;
+            // background-color: #1f1f1f;/
+            background-color: white;
             display: block;
           }
         }
@@ -391,7 +404,8 @@ export default {
           span {
             width: 40px;
             height: 4px;
-            background-color: black;
+            // background-color: black;
+            background-color: white;
             display: block;
           }
         }

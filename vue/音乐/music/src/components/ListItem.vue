@@ -1,21 +1,24 @@
 <template>
-  <div class="ListItem" v-show="ListItem">
-    <div class="ListItem-title">
-      当前播放
-      <div class="num">{{ playedSongs.length }}</div>
+  <div v-show="ListItem" @click.stop="overlay" class="ListItem-container">
+    <div class="ListItem">
+      <div class="ListItem-title">
+        当前播放
+        <div class="num">{{ playedSongs.length }}</div>
+      </div>
+      <ul>
+        <li
+          v-for="(item, index) in playedSongs"
+          :key="index"
+          :class="{ 'text-song': item.id === currentid }"
+          @click="playsMusic(item)"
+        >
+          <div class="singerSongs">
+            {{ item.name }} - {{ getArtists(item) }}
+          </div>
+          <div class="line" @click.stop="Deletemusic(item.id)">X</div>
+        </li>
+      </ul>
     </div>
-    <ul>
-      <li
-        v-for="(item, index) in playedSongs"
-        :key="index"
-        :class="{ 'text-song': item.id === currentid }"
-        @click="playsMusic(item)"
-      >
-        <div class="singerSongs">{{ item.name }} - {{ getArtists(item) }}</div>
-        <div class="line" @click.stop="Deletemusic(item.id)">X</div>
-      </li>
-    </ul>
-
     <div class="overlay" @click.stop="overlay"></div>
   </div>
 </template>
@@ -70,75 +73,90 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.ListItem {
-  width: 100vw;
-  height: 500px;
-
-  overflow: auto; /* 或者 overflow-x: auto; overflow-y: auto; */
-  scrollbar-width: none; /* 隐藏滚动条 */
-  -ms-overflow-style: none; /* IE 10+ 的兼容写法 */
-
-  background-color: #d2d1d1fa;
-  position: fixed;
-  bottom: 0;
-  border-radius: 20px;
-
+.ListItem-container {
+  // width: 100%;
+  // height: 100%;
   .overlay {
     width: 100vw;
-    height: 382px;
+    height: 100vh;
     background-color: #cccccc0f;
     position: fixed;
-    top: 0;
+    top: -219px;
+    left: 0;
+    z-index: 10;
   }
+  .ListItem {
+    width: 100vw;
+    height: 60vh;
 
-  .ListItem-title {
-    width: 100%;
-    font-weight: bold;
-    font-size: 20px;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    letter-spacing: 5px;
-    display: flex;
-    .num {
-      font-size: 12px;
-    }
-  }
+    // background-color: #d2d1d1fa;
+    background-color: rgba(255, 255, 255, 0.285); /* 半透明背景 */
+    backdrop-filter: blur(10px); /* 背景模糊 */
+    position: fixed;
+    left: 0px;
+    bottom: 0;
+    border-radius: 10px 10px 0 0;
+    z-index: 1000;
 
-  ul {
-    width: 100%;
-    list-style: none;
-    // padding: 0;
-
-    .text-song {
-      color: red;
-    }
-    li {
+    .ListItem-title {
+      width: 100%;
+      font-weight: bold;
+      font-size: 20px;
       padding: 10px;
       border-bottom: 1px solid #ccc;
-
-      font-size: 20px;
-
+      letter-spacing: 5px;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
 
-      cursor: pointer;
-      .singerSongs {
-        width: 90%;
-        // background-color: wheat;
-      }
-      .line {
-        width: 10%;
-        text-align: center;
-        cursor: pointer;
-        display: none;
-        &:hover {
-          color: red;
-        }
+      position: fixed;
+      bottom: 55vh;
+      left: 0;
+      background-color: #d4d4d4; 
+      border-radius: 10px 10px 0 0;
+
+      .num {
+        font-size: 12px;
       }
     }
-    &:hover .line {
-      display: block;
+
+    ul {
+      width: 100%;
+      height: 55vh;
+      list-style: none;
+
+      overflow: auto; /* 或者 overflow-x: auto; overflow-y: auto; */
+      scrollbar-width: none; /* 隐藏滚动条 */
+      -ms-overflow-style: none; /* IE 10+ 的兼容写法 */
+
+      .text-song {
+        color: red;
+      }
+      li {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+
+        font-size: 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        cursor: pointer;
+        .singerSongs {
+          width: 90%;
+          // background-color: wheat;
+        }
+        .line {
+          width: 10%;
+          text-align: center;
+          cursor: pointer;
+          color: black; 
+        }
+
+        &:first-of-type {
+          margin-top: 35px;
+        }
+      }
+
     }
   }
 }

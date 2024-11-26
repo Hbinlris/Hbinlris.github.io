@@ -19,8 +19,8 @@
     >
       <!-- 搜索提示 -->
       <div v-if="suggestions">
-        <div v-for="suggestion in suggestions" :key="suggestion.keyword">
-          <p class="tisp-outcome">{{ suggestion.keyword }}😊</p>
+        <div v-for="suggestion in suggestions" :key="suggestion.keyword" >
+          <p class="tisp-outcome" @click="inp(suggestion.keyword)">{{ suggestion.keyword }}😊</p>
         </div>
       </div>
 
@@ -89,6 +89,11 @@ export default {
   },
 
   methods: {
+
+    inp(inpitem){
+      this.search=inpitem;
+      this.enter()
+    },
     // 获取搜索提示
     sear() {
       // console.log("000", this.search);
@@ -137,9 +142,8 @@ export default {
     },
 
     // 搜索结果
-    enter(e) {
+    enter() {
       if (
-        e.key === "Enter" &&
         this.search.trim() !== "" &&
         !this.search.match(/^ *$/)
       ) {

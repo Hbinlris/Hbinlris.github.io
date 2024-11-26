@@ -108,7 +108,7 @@ export default {
 
 .SongLyric {
   width: 100%;
-  height: 55vh;
+  height: 60vh;
   // background-color: aliceblue;
   background-image: linear-gradient(
     to bottom,

@@ -77,6 +77,9 @@ export default {
   scrollbar-width: none; /* 隐藏滚动条 */
   -ms-overflow-style: none; /* IE 10+ 的兼容写法 */
 
+  width: 100%;
+  height: 100%;
+
   h4 {
     margin-bottom: 14px;
     padding-left: 9px;

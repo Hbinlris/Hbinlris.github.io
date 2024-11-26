@@ -6,22 +6,24 @@
       <router-link to="/Search">搜索</router-link>
     </nav>
 
-    <router-view
-      @plays-music="playsong"
-      :currentid="song ? song.id : null"
-      :playing="playing"
-      :duration="duration"
-      :playedSongs="playedSongs"
-      :currentTime="currentTime"
-      @change-play-time="$refs.audioEle.currentTime = $event"
-      @start-play-song="$refs.audioEle.play()"
-      @pause-play-song="$refs.audioEle.pause()"
-      @prev-song="prevSong"
-      @next-song="nextSong"
-      @Delete-music="Deletemusic"
-    />
-
+    <keep-alive>
+      <router-view
+        @plays-music="playsong"
+        :currentid="song ? song.id : null"
+        :playing="playing"
+        :duration="duration"
+        :playedSongs="playedSongs"
+        :currentTime="currentTime"
+        @change-play-time="$refs.audioEle.currentTime = $event"
+        @start-play-song="$refs.audioEle.play()"
+        @pause-play-song="$refs.audioEle.pause()"
+        @prev-song="prevSong"
+        @next-song="nextSong"
+        @Delete-music="Deletemusic"
+      />
+    </keep-alive>
     <!-- 绑定 audio 元素的 src 并监听 canplay 事件来播放音乐 -->
+
     <audio
       controls
       :src="`https://music.163.com/song/media/outer/url?id=${song.id}.mp3`"
@@ -63,110 +65,218 @@ export default {
       song: null,
       playing: false,
       currentid: null,
-
       duration: 0,
       currentTime: 0,
-
       showPlayMusic: true,
-
       playedSongs: [], // 存储歌曲ID
+      currentIndex: -1,
     };
   },
   watch: {
     "$route.path": {
+      // 执行一次 handler
       immediate: true,
       handler(newPath) {
+        // 根据新路径更新 showPlayMusic 的值
         this.showPlayMusic = newPath !== "/SongDetails";
+        if (this.showPlayMusic && this.$refs.audioEle) {
+          this.$refs.audioEle.load(); // 重新加载音频
+        }
+        // this.handleRouteChange(this.$route, { path: "/SongDetails" });
       },
     },
   },
-
   computed: {
     audioSrc() {
-      // 检查 song.id 是否存在，如果存在，则返回对应的音频 URL
-      return this.song && this.song.id
-        ? `https://music.163.com/song/media/outer/url?id=${this.song.id}.mp3`
+      // 根据当前歌曲的 ID 构建音频源 URL
+      return this.song && this.song?.id
+        ? `https://music.163.com/song/media/outer/url?id=${this.song?.id}.mp3`
         : "";
     },
     newSoundMarginBottom() {
-      // 如果 audioSrc 有值，说明有 id 传入，返回 '70px'
+      // 根据是否有音频源 URL 动态设置底部边距
       return this.audioSrc ? "70px" : "0";
     },
   },
   methods: {
+    // 播放音乐的方法 更新当前播放的状态
     playsong(song) {
-      // console.log("11", song);
-      console.log(song);
+      console.log(`使用 id 播放歌曲: ${song?.id}`);
+      // 更新 song
+      this.song = song;
+      // 更新当前歌曲的 ID
+      this.currentid = song ? song?.id : null;
 
-      this.song = song; // 更新 song
-      this.currentid = song ? song.id : null;
-      //  console.log("Song object:", song);
-
+      // 将歌曲保存到播放列表
       this.saveSongToPlayedList(song);
-    },
-    saveSongToPlayedList(song) {
-      // 检查是否已经存在相同 ID 的歌曲
-      const isDuplicate = this.playedSongs.some(
-        (playedSong) => playedSong.id === song.id
-      );
 
+      // 在播放新歌曲时更新 currentIndex
+      if (
+        this.currentIndex === -1 ||
+        this.playedSongs[this.currentIndex]?.id !== song?.id
+      ) {
+        this.updateCurrentIndex(song?.id);
+      }
+    },
+    // 将歌曲保存到播放列表
+    saveSongToPlayedList(song) {
+      // 检查播放列表中是否已存在该歌曲
+      const isDuplicate = this.playedSongs.some(
+        (playedSong) => playedSong?.id === song?.id
+      );
+      // 不存在则将歌曲添加到播放列表，并保存到本地存储
       if (!isDuplicate) {
         this.playedSongs.push(song);
         localStorage.setItem("playedSongs", JSON.stringify(this.playedSongs));
       }
     },
+    // 加载播放列表
     loadPlayedSongs() {
+      // 从本地存储中获取已播放的歌曲列表
       const storedSongs = localStorage.getItem("playedSongs");
       if (storedSongs) {
+        // 如果存在已播放的歌曲列表，将其解析并赋值给 this.playedSongs
         this.playedSongs = JSON.parse(storedSongs);
       }
     },
 
-    // 上一曲下一曲
+    // 更新当前歌曲索引
+    updateCurrentIndex(songId) {
+      // 查找播放列表中与 songId 匹配的歌曲索引
+      const index = this.playedSongs.findIndex((song) => song?.id === songId);
+      console.log(`查找 songId 的索引 ${songId}:`, index);
+      if (index !== -1) {
+        // 如果找到匹配的歌曲，更新当前索引
+        this.currentIndex = index;
+        // 将当前索引保存到本地存储
+        localStorage.setItem("currentIndex", JSON.stringify(this.currentIndex));
+        console.log(`currentIndex 更新为: ${this.currentIndex}`);
+      } else {
+        console.log(`id 为 ${songId} 在 playedSongs 中找不到`);
+      }
+    },
+
+    // 上一首
     prevSong() {
+      // 查找当前播放歌曲在播放列表中的索引
       const currentIndex = this.playedSongs.findIndex(
-        (song) => song.id === this.currentid
+        (song) => song?.id === this.currentid
       );
+      // 如果当前索引大于 0，表示有上一首歌曲
       if (currentIndex > 0) {
+        // 获取上一首歌曲
         const prevSong = this.playedSongs[currentIndex - 1];
+        // 播放上一首歌曲
         this.playsong(prevSong);
       }
     },
+
+    // 下一首
     nextSong() {
+      // 查找当前播放歌曲在播放列表中的索引
       const currentIndex = this.playedSongs.findIndex(
-        (song) => song.id === this.currentid
+        (song) => song?.id === this.currentid
       );
+      // 如果当前索引小于播放列表长度减 1，表示有下一首歌曲
       if (currentIndex < this.playedSongs.length - 1) {
+        // 获取下一首歌曲
         const nextSong = this.playedSongs[currentIndex + 1];
+        // 播放下一首歌曲
         this.playsong(nextSong);
+      } else {
+        // 如果没有下一首歌曲，循环播放第一首歌曲
+        const firstSong = this.playedSongs[0];
+        this.playsong(firstSong);
       }
     },
-
+    // 删除
     Deletemusic(songId) {
       console.log("删除：", songId);
-      
-      // 使用 filter 方法过滤掉需要删除的歌曲
-      this.playedSongs = this.playedSongs.filter((song) => song.id !== songId);
-
-      // 更新 localStorage
+      // 过滤掉要删除的歌曲
+      this.playedSongs = this.playedSongs.filter((song) => song?.id !== songId);
+      // 更新本地存储中的播放列表
       localStorage.setItem("playedSongs", JSON.stringify(this.playedSongs));
-
-      // 检查当前播放的歌曲是否被删除
+      // 如果当前播放的歌曲是要删除的歌曲
       if (this.currentid === songId) {
+        // 暂停音频播放
         this.$refs.audioEle.pause();
+        // 设置播放状态为停止
         this.playing = false;
+        // 清空当前歌曲信息
         this.song = null;
         this.currentid = null;
+
+        // 如果播放列表中还有其他歌曲
+        if (this.playedSongs.length > 0) {
+          // 重新计算 currentIndex
+          this.currentIndex = Math.max(0, this.currentIndex - 1);
+
+          // 如果当前索引小于播放列表长度减 1，表示有下一首歌曲
+          if (this.currentIndex < this.playedSongs.length - 1) {
+            // 获取下一首歌曲
+            const nextSong = this.playedSongs[this.currentIndex + 1];
+            // 播放下一首歌曲
+            this.playsong(nextSong);
+          } else {
+            // 如果没有下一首歌曲，循环播放第一首歌曲
+            const firstSong = this.playedSongs[0];
+            this.playsong(firstSong);
+          }
+        } else {
+          // 如果播放列表为空，停止播放
+          this.stopPlaying();
+        }
       }
     },
+    // 停止
+    stopPlaying() {
+      // 暂停音频播放
+      this.$refs.audioEle.pause();
+      // 设置播放状态为停止
+      this.playing = false;
+      // 清空当前歌曲信息
+      this.song = null;
+      // 清空当前歌曲 ID
+      this.currentid = null;
+    },
+  },
+
+  mounted() {
+    // 如果播放列表中有歌曲且当前索引不为 -1，则播放当前索引的歌曲
+    if (this.playedSongs.length > 0 && this.currentIndex !== -1) {
+      this.playsong(this.playedSongs[this.currentIndex]);
+    }
+    // 如果播放列表中有歌曲但当前索引为 -1，则播放第一首歌曲
+    else if (this.playedSongs.length > 0) {
+      const firstSong = this.playedSongs[0];
+      if (firstSong) {
+        this.currentid = firstSong?.id;
+        this.playsong(firstSong);
+      }
+    }
   },
   created() {
+    // 加载本地存储中的播放列表
     this.loadPlayedSongs();
+    console.log("playedSongs 加载：", this.playedSongs);
+    // 从本地存储中获取当前索引
+    const storedIndex = localStorage.getItem("currentIndex");
+    console.log("storedIndex 来自 localStorage:", storedIndex);
+    // 如果存在存储的当前索引，则解析并设置当前索引
+    if (storedIndex) {
+      this.currentIndex = JSON.parse(storedIndex);
+      console.log("currentIndex 设置为：", this.currentIndex);
+    }
+    // 如果没有存储的当前索引，则将当前索引设置为 -1
+    else {
+      console.log("在 localStorage 中找不到 currentIndex，设置为 -1");
+      this.currentIndex = -1;
+    }
   },
 };
 </script>
 
-<style  lang="less">
+<style  lang="less" scoped>
 #app {
   background-color: #f5f5f5;
 

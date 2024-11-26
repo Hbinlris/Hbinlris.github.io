@@ -2,10 +2,10 @@
   <!-- 音乐栏 -->
   <div class="bottom-musicBars">
     <div class="bottom-music-bg">
-      <div class="bottom-music-box">
+      <div class="bottom-music-box" @click="goToSongDetails">
         <div
           class="image"
-          @click="goToSongDetails"
+        
           :playedSongs="playedSongs"
           :currentid="currentid"
           @plays-music="$emit('plays-music', $event)"
@@ -36,7 +36,7 @@
           ▶
         </div>
         <div class="nextOne" @click="$emit('next-song')">▶l</div>
-        <div class="column" @click="listItems">
+        <div class="column" @click.stop="listItems">
           <span></span>
           <span></span>
           <span></span>
