@@ -1,6 +1,10 @@
 <template>
   <!-- 推荐音乐歌曲列表 -->
-  <div class="TuYinTwo" v-if="playlist" :style="{ 'margin-bottom': $parent.newSoundMarginBottom }">
+  <div
+    class="TuYinTwo"
+    v-if="playlist"
+    :style="{ 'margin-bottom': $parent.newSoundMarginBottom }"
+  >
     <div class="return" @click="gotorecommend"></div>
     <div class="tuYinTwo-title">
       <div class="image">
@@ -23,7 +27,6 @@
       :key="item.id"
       @click="playsMusic(item)"
       :class="{ 'text-song': item.id === currentid }"
-      
     >
       <div class="num">{{ number(index + 1) }}</div>
 
@@ -56,7 +59,6 @@ export default {
       this.axios
         .get("playlist/detail", {
           params: { id: this.$route.query.id },
-
         })
         .then((response) => {
           console.log(response.data);
@@ -180,6 +182,10 @@ export default {
       width: 85%;
       .tuYinTwo-song {
         font-size: 17px;
+        width: 45vw;
+     white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
       .tuYinTwo-singer {
         margin-top: 5px;

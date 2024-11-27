@@ -6,22 +6,20 @@
       <router-link to="/Search">搜索</router-link>
     </nav>
 
-    <keep-alive>
-      <router-view
-        @plays-music="playsong"
-        :currentid="song ? song.id : null"
-        :playing="playing"
-        :duration="duration"
-        :playedSongs="playedSongs"
-        :currentTime="currentTime"
-        @change-play-time="$refs.audioEle.currentTime = $event"
-        @start-play-song="$refs.audioEle.play()"
-        @pause-play-song="$refs.audioEle.pause()"
-        @prev-song="prevSong"
-        @next-song="nextSong"
-        @Delete-music="Deletemusic"
-      />
-    </keep-alive>
+    <router-view
+      @plays-music="playsong"
+      :currentid="song ? song.id : null"
+      :playing="playing"
+      :duration="duration"
+      :playedSongs="playedSongs"
+      :currentTime="currentTime"
+      @change-play-time="$refs.audioEle.currentTime = $event"
+      @start-play-song="startPlaying()"
+      @pause-play-song="pausePlaying()"
+      @prev-song="prevSong"
+      @next-song="nextSong"
+      @Delete-music="Deletemusic"
+    />
     <!-- 绑定 audio 元素的 src 并监听 canplay 事件来播放音乐 -->
 
     <audio
@@ -44,8 +42,8 @@
       :playing="playing"
       :playedSongs="playedSongs"
       @plays-music="playsong($event)"
-      @start-play-song="$refs.audioEle.play()"
-      @pause-play-song="$refs.audioEle.pause()"
+      @start-play-song="startPlaying()"
+      @pause-play-song="pausePlaying()"
       @prev-song="prevSong"
       @next-song="nextSong"
       @Delete-music="Deletemusic"
@@ -99,6 +97,23 @@ export default {
     },
   },
   methods: {
+    startPlaying() {
+      if (this.$refs.audioEle) {
+        console.log(this.$refs.audioEle);
+        this.$refs.audioEle.play();
+      } else {
+        console.error("audioEle 未定义");
+      }
+    },
+    pausePlaying() {
+      if (this.$refs.audioEle) {
+        console.log(this.$refs.audioEle);
+        this.$refs.audioEle.pause();
+      } else {
+        console.error("audioEle 未定义");
+      }
+    },
+
     // 播放音乐的方法 更新当前播放的状态
     playsong(song) {
       console.log(`使用 id 播放歌曲: ${song?.id}`);
@@ -258,7 +273,9 @@ export default {
   created() {
     // 加载本地存储中的播放列表
     this.loadPlayedSongs();
+
     console.log("playedSongs 加载：", this.playedSongs);
+
     // 从本地存储中获取当前索引
     const storedIndex = localStorage.getItem("currentIndex");
     console.log("storedIndex 来自 localStorage:", storedIndex);
@@ -271,6 +288,27 @@ export default {
     else {
       console.log("在 localStorage 中找不到 currentIndex，设置为 -1");
       this.currentIndex = -1;
+    }
+
+    // 尝试从 URL 参数中获取歌曲 ID
+    const songIdFromUrl = this.$route.query.id;
+    
+    // 检查是否在无痕模式下访问，即没有本地存储数据
+    if (songIdFromUrl) {
+      // 如果在无痕模式下访问，使用 URL 中的歌曲 ID
+      this.song = { id: songIdFromUrl };
+      this.currentid = songIdFromUrl;
+    } else if (this.playedSongs.length > 0 && this.currentIndex !== -1) {
+      // 如果播放列表中有歌曲且当前索引不为 -1，则播放当前索引的歌曲
+      this.playsong(this.playedSongs[this.currentIndex]);
+    } else if (this.playedSongs.length > 0) {
+      // 如果播放列表中有歌曲但当前索引为 -1，则播放第一首歌曲
+      const firstSong = this.playedSongs[0];
+
+      if (firstSong) {
+        this.currentid = firstSong.id;
+        this.playsong(firstSong);
+      }
     }
   },
 };

@@ -11,7 +11,7 @@
       <div class="singer">{{ singersName }}</div>
     </div>
     <div class="play-btn">
-      <div v-if="currentid !== item.id" class="iconfont">▶</div>
+      <div v-if="currentid !== item.id" class="iconfont">&nbsp;▶</div>
       <div v-else :class="{ playing: playing }" class="icon">
         <span></span><span></span><span></span><span></span>
       </div>

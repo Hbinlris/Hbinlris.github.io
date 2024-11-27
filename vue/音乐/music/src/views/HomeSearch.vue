@@ -19,13 +19,15 @@
     >
       <!-- 搜索提示 -->
       <div v-if="suggestions">
-        <div v-for="suggestion in suggestions" :key="suggestion.keyword" >
-          <p class="tisp-outcome" @click="inp(suggestion.keyword)">{{ suggestion.keyword }}😊</p>
+        <div v-for="suggestion in suggestions" :key="suggestion.keyword">
+          <p class="tisp-outcome" @click="inp(suggestion.keyword)">
+            {{ suggestion.keyword }}
+          </p>
         </div>
       </div>
 
       <div v-else-if="search.trim() !== ''" class="tisp-outcome">
-        找不到相关搜索😭
+        找不到相关搜索
       </div>
 
       <!-- 歌单结果 -->
@@ -39,8 +41,8 @@
         >
           <div class="song-name">
             <h4>{{ song.name }}</h4>
-            <!-- <p class="outcome-p">歌手：{{ song.artists[0].name }}😊</p> -->
-            <p class="outcome-p">歌手：{{ song.artistsNames }}😊</p>
+            <!-- <p class="outcome-p">歌手：{{ song.artists[0].name }}</p> -->
+            <p class="outcome-p">歌手：{{ song.artistsNames }}</p>
             <!-- <p>id：{{ song.artists[0].id }}</p> -->
           </div>
 
@@ -54,7 +56,7 @@
       </div>
 
       <div v-else-if="search.trim() !== ''" class="tisp-outcome">
-        找不到相关搜索😭
+        找不到相关搜索
       </div>
     </div>
   </div>
@@ -89,10 +91,9 @@ export default {
   },
 
   methods: {
-
-    inp(inpitem){
-      this.search=inpitem;
-      this.enter()
+    inp(inpitem) {
+      this.search = inpitem;
+      this.enter();
     },
     // 获取搜索提示
     sear() {
@@ -128,7 +129,7 @@ export default {
           // console.log(response.data, response.data);
           if (this.search) {
             this.suggestions = response.data.result.allMatch;
-          // this.result = [];
+            // this.result = [];
           }
         })
         .catch((error) => {
@@ -143,10 +144,7 @@ export default {
 
     // 搜索结果
     enter() {
-      if (
-        this.search.trim() !== "" &&
-        !this.search.match(/^ *$/)
-      ) {
+      if (this.search.trim() !== "" && !this.search.match(/^ *$/)) {
         this.song(this.search);
         this.suggestions = [];
         console.log("搜索结果", (this.suggestions = []));

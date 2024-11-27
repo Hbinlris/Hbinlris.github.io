@@ -5,7 +5,6 @@
       <div class="bottom-music-box" @click="goToSongDetails">
         <div
           class="image"
-        
           :playedSongs="playedSongs"
           :currentid="currentid"
           @plays-music="$emit('plays-music', $event)"
@@ -19,7 +18,16 @@
           />
         </div>
 
-        <h4>{{ song.name }}</h4>
+        <h4
+          style="
+            width: 45vw;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          "
+        >
+          {{ song.name }}
+        </h4>
       </div>
 
       <div class="bottom-btn-box">
@@ -51,7 +59,6 @@
       @plays-music="$emit('plays-music', $event)"
       @Delete-music="$emit('Delete-music', $event)"
     >
-
     </ListItem>
   </div>
 </template>
@@ -109,8 +116,6 @@ export default {
 
 <style scoped lang="less">
 .bottom-musicBars {
-
-
   .bottom-music-bg {
     width: 100%;
     height: 50px;
@@ -170,9 +175,7 @@ export default {
       height: 50%;
 
       padding: 0 10px;
-
-      cursor: pointer;
-
+ 
       display: flex;
       justify-content: space-around;
       align-items: center;
@@ -204,7 +207,6 @@ export default {
         width: 22px;
         height: 15px;
         display: flex;
-        align-items: center;
         justify-content: space-around;
         flex-direction: column;
         span {

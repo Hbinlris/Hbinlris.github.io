@@ -90,8 +90,8 @@ export default {
     height: 60vh;
 
     // background-color: #d2d1d1fa;
-    background-color: rgba(255, 255, 255, 0.285); /* 半透明背景 */
-    backdrop-filter: blur(10px); /* 背景模糊 */
+    background-color: rgba(255, 255, 255, 0.433); /* 半透明背景 */
+    backdrop-filter: blur(20px) ; /* 背景模糊 */
     position: fixed;
     left: 0px;
     bottom: 0;
@@ -107,10 +107,11 @@ export default {
       letter-spacing: 5px;
       display: flex;
 
+
       position: fixed;
       bottom: 55vh;
       left: 0;
-      background-color: #d4d4d4; 
+      background-color: #d4d4d4;
       border-radius: 10px 10px 0 0;
 
       .num {
@@ -142,21 +143,25 @@ export default {
 
         cursor: pointer;
         .singerSongs {
+          text-overflow: ellipsis;
           width: 90%;
           // background-color: wheat;
+          // color: white;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
         .line {
           width: 10%;
           text-align: center;
           cursor: pointer;
-          color: black; 
+          color: black;
         }
 
         &:first-of-type {
           margin-top: 35px;
         }
       }
-
     }
   }
 }

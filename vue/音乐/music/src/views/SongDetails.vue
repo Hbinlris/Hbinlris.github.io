@@ -57,8 +57,8 @@
             
           />
         </div>
-        <div class="num">
-          <span>{{ currentTime | time2mmss }}</span>
+        <div class="num" >
+          <span><span v-if="!currentTime">00:00</span>{{ currentTime | time2mmss }}</span>
           <span>{{ duration | time2mmss }}</span>
         </div>
       </div>
@@ -172,6 +172,8 @@ export default {
   },
 
   methods: {
+
+    
     gotorecommend() {
       this.$router.push({ path: "/" });
     },
@@ -289,7 +291,7 @@ export default {
           .songName {
             // background-color: aqua;
             padding: 10px 0 5px 0;
-            font-size: 20px;
+            font-size: 15px;
             font-weight: bold;
             color: white;
           }
