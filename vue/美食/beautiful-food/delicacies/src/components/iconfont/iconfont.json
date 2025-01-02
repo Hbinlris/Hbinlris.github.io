@@ -1,0 +1,30 @@
+{
+  "id": "4777227",
+  "name": "美食",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "25615541",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e68b",
+      "unicode_decimal": 59019
+    },
+    {
+      "icon_id": "10524602",
+      "name": "书籍书本书",
+      "font_class": "shujishubenshu",
+      "unicode": "e73a",
+      "unicode_decimal": 59194
+    },
+    {
+      "icon_id": "16372289",
+      "name": "铃铛",
+      "font_class": "lingdang",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    }
+  ]
+}

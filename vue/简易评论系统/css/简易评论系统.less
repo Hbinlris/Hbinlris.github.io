@@ -1,0 +1,134 @@
+body {
+  background-color: white;
+
+  display: flex;
+  justify-content: center;
+
+  main {
+    width: 80%;
+    background-color: whitesmoke;
+
+    padding: 15px;
+
+    margin: 30px 0;
+
+    border-radius: 10px;
+    
+    button {
+      padding: 5px;
+      color: rgba(99, 98, 98, 0.958);
+      background-color: aqua;
+      font-weight: bold;
+
+      border-radius: 5px;
+      border: 1px solid;
+
+      &:active {
+        background-image: linear-gradient(to right, rgb(239, 165, 165), rgb(238, 140, 218), rgb(32, 144, 204));
+      }
+
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px 0;
+
+      padding: 5px;
+      border-radius: 5px;
+
+      box-shadow: 0 0 5px 0 rgb(143, 140, 140);
+    }
+
+    #app {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-flow: column;
+      align-items: center;
+
+      .comments {
+        width: 100%;
+
+        // background-color: antiquewhite;
+
+        padding: 10px;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        box-shadow: 0 0 5px 0 rgb(143, 140, 140);
+
+        border-radius: 5px;
+
+        margin-bottom: 20px;
+
+
+        input {
+          width: 90%;
+          height: 20px;
+
+          margin: 3px 0;
+          padding: 5px;
+          border-radius: 5px;
+
+          text-align: center;
+          border: 1px solid;
+        }
+
+        button {
+          width: 50%;
+          margin: 10px 0;
+
+
+        }
+      }
+
+      .content {
+        width: 100%;
+        // background-color: aquamarine;
+
+        padding: 0 5px;
+
+        box-shadow: 0 0 5px 0 rgb(143, 140, 140);
+
+        border-radius: 5px;
+
+        margin-bottom: 20px;
+
+        .username {
+          font-weight: bold;
+          font-size: 23px;
+          margin: 10px 0;
+        }
+
+        .comment {
+          margin: 10px 0;
+          // text-indent: 2em;
+
+
+
+        }
+
+        .handoff {
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          /* 默认限制为2行 */
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+
+        }
+
+        .more {
+          color: red;
+          cursor: pointer;
+        }
+        
+      }
+
+
+    }
+
+  }
+}
