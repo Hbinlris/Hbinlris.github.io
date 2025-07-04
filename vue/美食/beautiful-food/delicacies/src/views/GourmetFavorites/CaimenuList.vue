@@ -7,13 +7,7 @@
         <!-- 内容 -->
         <!-- <p>{{ item }}</p> -->
         <div class="left" @click="gotoCulinaryDetails(item.cook_id)">
-          <van-image
-            width="140rem"
-            height="90rem"
-            :src="item.photo_path"
-            fit="cover"
-            radius="10rem"
-          />
+          <van-image width="140rem" height="90rem" :src="item.photo_path" fit="cover" radius="10rem" />
         </div>
 
         <div class="right">
@@ -23,23 +17,13 @@
             <span>{{ item.views_count_text }}人看过</span>
           </div>
           <div class="user">
-            <van-image
-              width="5vw"
-              style="border-radius: 50%; overflow: hidden"
-              :src="item.user.user_photo"
-              alt=""
-            />
+            <van-image width="5vw" style="border-radius: 50%; overflow: hidden" :src="item.user.user_photo" alt="" />
             <span class="nickname">{{ item.user.nickname }}</span>
           </div>
         </div>
         <!-- 内容end -->
         <template #right>
-          <van-button
-            square
-            type="danger"
-            text="删除"
-            @click="deleteItem(item.cook_id)"
-          />
+          <van-button square type="danger" text="删除" @click="deleteItem(item.cook_id)" />
         </template>
       </van-swipe-cell>
     </div>
@@ -54,18 +38,23 @@
 .van-tabs__line {
   background: #ff0000;
 }
+
 .caimenu-list {
   width: 375rem;
   //   height: 150rem;
   justify-content: space-between;
+
   //   align-items: center;
   .no-data {
     text-align: center;
     color: #adadad;
   }
+
   overflow: hidden;
+
   .info {
     margin: 10rem;
+
     // display: flex;
     // justify-content: space-between;
     .left {
@@ -74,7 +63,9 @@
       overflow: hidden;
       float: left;
     }
+
     overflow: hidden;
+
     .right {
       padding: 5rem;
       width: 190rem;
@@ -83,12 +74,14 @@
       justify-content: space-between;
       // align-items: center;
       float: left;
+
       .up {
         h4 {
           margin: 0rem;
           font-weight: normal;
           font-size: 14rem;
         }
+
         span {
           font-size: 10rem;
           padding: 1rem;
@@ -104,6 +97,7 @@
         // margin-top: 10rem;
         position: relative;
         top: 18%;
+
         span {
           line-height: 100%;
           padding: 1rem;

@@ -11,25 +11,14 @@
           <h1 @click="showPopup">+</h1>
           <van-cell title="创建分组" is-link @click="showPopup" />
 
-          <van-popup
-            v-model:show="show"
-            position="bottom"
-            :style="{ height: '30%' }"
-            round
-            closeable:true
-          >
+          <van-popup v-model:show="show" position="bottom" :style="{ height: '30%' }" round closeable:true>
             <div class="title">
               <h3>创建分组</h3>
               <p @click="addlist">确定</p>
             </div>
             <div class="input">
               <img src="/fenzubg.png" alt="" />
-              <input
-                type="text"
-                placeholder="请输入分组名称"
-                v-model="name"
-                @keydown.enter="addlist"
-              />
+              <input type="text" placeholder="请输入分组名称" v-model="name" @keydown.enter="addlist" />
             </div>
           </van-popup>
 
@@ -48,6 +37,7 @@
     width: 100%;
     height: 20rem;
   }
+
   .list {
     ul {
       li {
@@ -59,6 +49,7 @@
         border-radius: 15rem;
         margin: 5rem;
         float: left;
+
         h1 {
           width: 30rem;
           height: 30rem;
@@ -72,17 +63,20 @@
           left: 70rem;
           z-index: 999;
         }
+
         .van-cell {
           background-color: #f7f7f7;
           position: absolute;
           top: 80rem;
           left: 40rem;
+
           .van-cell__right-icon {
             // display: none;
             opacity: 0;
             color: red;
           }
         }
+
         .title {
           border-bottom: 1rem solid #f3f3f3;
           padding: 15rem;
@@ -93,14 +87,17 @@
             color: #9a9a9a;
           }
         }
+
         .input {
           position: relative;
+
           img {
             width: 80rem;
             position: absolute;
             top: 15rem;
             left: 10rem;
           }
+
           input {
             border: 0;
             line-height: 100%;

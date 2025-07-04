@@ -8,12 +8,7 @@
 
     <!-- 视频 -->
     <div class="video" v-if="recipe.vfurl">
-      <video
-        :src="recipe.vfurl"
-        style="background-color: black"
-        controls="controls"
-        class="video-item"
-      />
+      <video :src="recipe.vfurl" style="background-color: black" controls="controls" class="video-item" />
     </div>
     <!-- 图片 -->
     <div v-else-if="recipe.thumb_path">
@@ -39,11 +34,7 @@
           </div>
         </div>
         <!-- 关注 -->
-        <div
-          class="concern"
-          v-if="isaddd(recipe.user.user_id)"
-          @click="GuanZhufn(recipe.user.user_id)"
-        >
+        <div class="concern" v-if="isaddd(recipe.user.user_id)" @click="GuanZhufn(recipe.user.user_id)">
           关注
         </div>
         <div class="followed" v-else @click="GuanZhufn(recipe.user.user_id)">
@@ -56,19 +47,11 @@
       <!-- 时间 -->
       <div class="time">
         <div class="number" v-if="recipe.cook_time">
-          <van-image
-            class="cook_time_image"
-            :src="recipe.cook_time_image"
-            fit="cover"
-          />
+          <van-image class="cook_time_image" :src="recipe.cook_time_image" fit="cover" />
           {{ recipe.cook_time }}
         </div>
         <div class="number" v-if="recipe.cook_difficulty">
-          <van-image
-            class="cook_time_image"
-            :src="recipe.cook_difficulty_image"
-            fit="cover"
-          />
+          <van-image class="cook_time_image" :src="recipe.cook_difficulty_image" fit="cover" />
           {{ recipe.cook_difficulty }}
         </div>
       </div>
@@ -77,23 +60,15 @@
       <div class="ingredients">
         <div class="title">
           <p>食材清单</p>
-          <p
-            v-if="isadd(recipe.cook_id)"
-            class="add"
-            @click="addShop(recipe.cook_id)"
-          >
+          <p v-if="isadd(recipe.cook_id)" class="add" @click="addShop(recipe.cook_id)">
             加入采购清单
           </p>
           <p v-else class="add" @click="deleteItem(recipe.cook_id)">
             移出采购清单
           </p>
         </div>
-        <div
-          class="major"
-          v-for="ingredients in recipe.major"
-          :key="ingredients.index"
-          @click="gotufoodDetails(ingredients.title)"
-        >
+        <div class="major" v-for="ingredients in recipe.major" :key="ingredients.index"
+          @click="gotufoodDetails(ingredients.title)">
           <div class="major-title">{{ ingredients.title }}</div>
           <div class="major-note">{{ ingredients.note }}</div>
         </div>
@@ -107,11 +82,7 @@
           <div class="magnify" @click="gotocook">点击进入烹饪模式</div>
         </div>
 
-        <div
-          class="cookstep"
-          v-for="(cooksteps, index) in recipe.cookstep"
-          :key="index"
-        >
+        <div class="cookstep" v-for="(cooksteps, index) in recipe.cookstep" :key="index">
           <!-- 总数 -->
           <div class="length">
             {{ `步骤${index + 1}/${recipe.cookstep.length}` }}
@@ -131,44 +102,23 @@
 
       <div class="c">
         <van-icon name="chat-o" size="26rem" @click="showPopup" />
-        <van-popup
-          v-model:show="show"
-          :style="{ padding: '15px' }"
-          position="bottom"
-          round
-          closeable
-        >
+        <van-popup v-model:show="show" :style="{ padding: '15px' }" position="bottom" round closeable>
           <!-- 评论展示 -->
           <ul>
-            <li
-              v-for="item in talks"
-              :key="item.id"
-              style="
+            <li v-for="item in talks" :key="item.id" style="
                 border-bottom: 1px solid #ccc;
                 padding-bottom: 5rem;
                 margin-bottom: 15srem;
-              "
-            >
+              ">
               <!-- 用户 -->
               <div>
                 <p style="margin: 5rem">
-                  <van-image
-                    width="20rem"
-                    style="border-radius: 50%; overflow: hidden"
-                    :src="item.u.p"
-                  ></van-image>
-                  <span style="color: #747474"
-                    >{{ item.u.n }} LV.{{ item.u.lvl }}</span
-                  >
+                  <van-image width="20rem" style="border-radius: 50%; overflow: hidden" :src="item.u.p"></van-image>
+                  <span style="color: #747474">{{ item.u.n }} LV.{{ item.u.lvl }}</span>
                 </p>
               </div>
               <!-- 评论内容 -->
-              <span
-                class="talk"
-                v-if="item.content[0].c"
-                style="margin-left: 26rem"
-                >{{ item.content[0].c }}</span
-              >
+              <span class="talk" v-if="item.content[0].c" style="margin-left: 26rem">{{ item.content[0].c }}</span>
             </li>
           </ul>
           <ul class="talk" v-if="!talks">
@@ -178,18 +128,9 @@
       </div>
 
       <div class="c-r">
-        <van-icon
-          name="star"
-          v-if="isCollected.includes(recipe.cook_id)"
-          style="font-size: 26rem; color: red"
-          @click="collection(recipe.cook_id)"
-        />
-        <van-icon
-          name="star-o"
-          size="26rem"
-          v-else
-          @click="collection(recipe.cook_id)"
-        />
+        <van-icon name="star" v-if="isCollected.includes(recipe.cook_id)" style="font-size: 26rem; color: red"
+          @click="collection(recipe.cook_id)" />
+        <van-icon name="star-o" size="26rem" v-else @click="collection(recipe.cook_id)" />
 
         <div class="collection">收藏</div>
       </div>
@@ -405,6 +346,7 @@ onMounted(() => {
 }
 
 .CulinaryDetails {
+
   // 顶部导航栏
   .top {
     position: fixed;

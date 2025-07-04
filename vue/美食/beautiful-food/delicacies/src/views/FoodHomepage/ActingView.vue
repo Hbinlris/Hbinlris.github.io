@@ -4,43 +4,20 @@
   <div class="ActingView">
     <div class="data" v-if="data">
       <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
-        <van-list
-          v-model:loading="loading"
-          :finished="finished"
-          finished-text="没有更多了"
-          @load="onLoad"
-        >
+        <van-list v-model:loading="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
           <!-- 公告 -->
           <div class="gonggao">
-            <van-notice-bar
-              :scrollable="false"
-              color="#000"
-              background="#e9e9e9"
-            >
+            <van-notice-bar :scrollable="false" color="#000" background="#e9e9e9">
               <van-tag type="danger">公告</van-tag>
-              <van-swipe
-                vertical
-                class="notice-swipe"
-                :autoplay="3000"
-                :touchable="false"
-                :show-indicators="false"
-              >
-                <van-swipe-item
-                  v-for="(banneer, index) in data?.banner"
-                  :key="index"
-                >
-                  <div
-                    class="name"
-                    v-html="
-                      `<b>${banneer.nickname}</b>&nbsp;刚刚参加了活动&nbsp;<b>${banneer.name}</b>`
-                    "
-                    style="
+              <van-swipe vertical class="notice-swipe" :autoplay="3000" :touchable="false" :show-indicators="false">
+                <van-swipe-item v-for="(banneer, index) in data?.banner" :key="index">
+                  <div class="name" v-html="`<b>${banneer.nickname}</b>&nbsp;刚刚参加了活动&nbsp;<b>${banneer.name}</b>`
+                    " style="
                       white-space: nowrap;
                       overflow: hidden;
                       text-overflow: ellipsis;
                       width: 100%;
-                    "
-                  ></div>
+                    "></div>
                 </van-swipe-item>
               </van-swipe>
             </van-notice-bar>
@@ -50,11 +27,7 @@
             <div class="title">热门活动上线中</div>
 
             <div class="list">
-              <div
-                class="content"
-                v-for="ongoing in data?.ongoing?.events"
-                :key="ongoing.id"
-              >
+              <div class="content" v-for="ongoing in data?.ongoing?.events" :key="ongoing.id">
                 <van-image width="100%" height="auto" :src="ongoing.image" />
                 <div class="list-title">
                   <div class="left">
@@ -73,11 +46,7 @@
             <div class="title">往期回顾</div>
 
             <div class="list">
-              <div
-                class="content"
-                v-for="ended in data?.ended?.events"
-                :key="ended.id"
-              >
+              <div class="content" v-for="ended in data?.ended?.events" :key="ended.id">
                 <van-image width="100%" height="auto" :src="ended.image" />
                 <div class="list-title">
                   <div class="left">
@@ -178,6 +147,7 @@ const gotoreview = (url) => {
   border-radius: 5rem;
   overflow: hidden;
 }
+
 .ActingView {
   padding: 0 15rem;
   margin-bottom: 50rem;

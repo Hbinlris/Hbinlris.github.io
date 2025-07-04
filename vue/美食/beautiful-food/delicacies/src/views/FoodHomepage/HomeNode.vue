@@ -1,4 +1,4 @@
-<script setup >
+<script setup>
 import { HomeNode } from "@/api/index";
 import { ref } from "vue";
 import { showToast } from "vant";
@@ -89,53 +89,26 @@ const onRefresh = () => {
   <div class="big">
     <div v-if="resultList">
       <div v-for="tops in resultList.topics" class="topics" :key="tops.index">
-        <div
-          v-for="tip in tops"
-          :key="tip.id"
-          class="item"
-          @click="TrendingTopics(tip)"
-        >
+        <div v-for="tip in tops" :key="tip.id" class="item" @click="TrendingTopics(tip)">
           # {{ tip.name }}
         </div>
       </div>
       <van-pull-refresh v-model="loading" @refresh="onRefresh">
-        <van-list
-          v-model:loading="listLoading"
-          :finished="finished"
-          finished-text="没有更多了"
-          @load="onLoad"
-        >
+        <van-list v-model:loading="listLoading" :finished="finished" finished-text="没有更多了" @load="onLoad">
           <div class="node">
             <template v-for="node in list">
-              <div
-                v-if="node.type === 1"
-                class="item"
-                @click="
-                  $router.push({
-                    path: '/NoteDetailPage',
-                    query: { id: node.note.id },
-                  })
-                "
-              >
-                <van-image
-                  fit="cover"
-                  width="175rem"
-                  height="218rem"
-                  :src="node.note.image_u"
-                  alt=""
-                  radius="10rem"
-                />
+              <div v-if="node.type === 1" class="item" @click="
+                $router.push({
+                  path: '/NoteDetailPage',
+                  query: { id: node.note.id },
+                })
+                ">
+                <van-image fit="cover" width="175rem" height="218rem" :src="node.note.image_u" alt="" radius="10rem" />
                 <span class="straight_text">{{ node.note.straight_text }}</span>
                 <p class="title text">{{ node.note.title }}</p>
                 <div class="author">
                   <div style="display: flex; align-items: center">
-                    <van-image
-                      fit="cover"
-                      width="15rem"
-                      radius="50%"
-                      :src="node.note.author.p"
-                      alt=""
-                    />
+                    <van-image fit="cover" width="15rem" radius="50%" :src="node.note.author.p" alt="" />
                     <span>{{ node.note.author.n }}</span>
                   </div>
                   <div style="display: flex; align-items: center">

@@ -11,19 +11,12 @@
 
       <div class="card">
         <ul>
-          <li
-            v-for="(item, index) in ids"
-            :key="index"
-            style="margin-bottom: 15rem"
-          >
+          <li v-for="(item, index) in ids" :key="index" style="margin-bottom: 15rem">
             <div class="carduser">
               <!-- 添加头像展示 -->
               <div class="left">
                 <div class="left">
-                  <img
-                    :src="idimgs[index]"
-                    @click="navigateToUserDetails(item.u.id)"
-                  />
+                  <img :src="idimgs[index]" @click="navigateToUserDetails(item.u.id)" />
                 </div>
                 <div class="right">
                   <!-- 添加用户名展示 -->
@@ -37,8 +30,7 @@
                 <!-- <img :src="vipimgs[index]" v-if="vipimgs[index]" /> -->
               </div>
               <div class="right">
-                <button
-                  style="
+                <button style="
                     color: white;
                     background: rgb(247, 71, 74);
                     width: 64px;
@@ -46,25 +38,16 @@
                     border-width: 0px;
                     padding: 6rem;
                     font-size: 14rem;
-                  "
-                  @click="GuanZhufn(item.u.id)"
-                  ref="guanzhu"
-                  v-if="isadd(item.u.id)"
-                >
+                  " @click="GuanZhufn(item.u.id)" ref="guanzhu" v-if="isadd(item.u.id)">
                   <span>关注</span>
                 </button>
-                <button
-                  v-else
-                  style="
+                <button v-else style="
                     color: #aaaaaa;
                     background-color: #f5f5f5;
                     width: 80px;
                     border-radius: 50px;
                     border-width: 0;
-                  "
-                  @click="GuanZhufn(item.u.id)"
-                  ref="guanzhu"
-                >
+                  " @click="GuanZhufn(item.u.id)" ref="guanzhu">
                   <span>已关注</span>
                 </button>
               </div>
@@ -73,15 +56,12 @@
             <div class="cardimg">
               <!-- 添加图片展示 -->
               <!-- <p>{{ item.u.id }}</p> -->
-              <div
-                class="bigcard"
-                @click="
-                  $router.push({
-                    path: '/CulinaryDetails',
-                    query: { id: item.item_id },
-                  })
-                "
-              >
+              <div class="bigcard" @click="
+                $router.push({
+                  path: '/CulinaryDetails',
+                  query: { id: item.item_id },
+                })
+                ">
                 <img :src="images[index]" alt="图片" v-if="images[index]" />
               </div>
               <div class="downmsg">
@@ -106,11 +86,7 @@
 
                   <!-- 添加参加活动展示 -->
                   <p class="active" v-if="events[index]">
-                    <img
-                      v-if="events[index]"
-                      src="../../assets/icons/activity.png"
-                      alt=""
-                    />
+                    <img v-if="events[index]" src="../../assets/icons/activity.png" alt="" />
                     {{ events[index] }}
                   </p>
                 </div>

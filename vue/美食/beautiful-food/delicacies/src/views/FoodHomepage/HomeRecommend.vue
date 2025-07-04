@@ -3,20 +3,12 @@
   <div class="HomeRecommend">
     <van-pull-refresh v-model="loading" @refresh="onRefresh">
       <template #pulling="props">
-        <img
-          class="doge"
-          src="/loading.gif"
-          :style="{ transform: `scale(${props.distance / 80})` }"
-        />
+        <img class="doge" src="/loading.gif" :style="{ transform: `scale(${props.distance / 80})` }" />
       </template>
 
       <!-- 释放提示 -->
       <template #loosing>
-        <img
-          style="position: relative; bottom: 20rem"
-          class="doge"
-          src="/loading.gif"
-        />
+        <img style="position: relative; bottom: 20rem" class="doge" src="/loading.gif" />
       </template>
 
       <!-- 加载提示 -->
@@ -29,10 +21,7 @@
         <!-- <van-image class="image" :src="HomeRecommends?.clear_image_url"></van-image> -->
 
         <van-swipe :autoplay="3000" lazy-render>
-          <van-swipe-item
-            v-for="image in HomeRecommends.banner"
-            :key="image.url"
-          >
+          <van-swipe-item v-for="image in HomeRecommends.banner" :key="image.url">
             <!-- 骨架屏 -->
             <van-skeleton :loading="skeletonloading" row="1">
               <van-image class="Carouselimg" :src="image.i" fit="contain" />
@@ -41,12 +30,7 @@
         </van-swipe>
       </div>
 
-      <van-list
-        v-model:loading="listLoading"
-        :finished="finished"
-        finished-text="没有更多了"
-        @load="onLoad"
-      >
+      <van-list v-model:loading="listLoading" :finished="finished" finished-text="没有更多了" @load="onLoad">
         <!-- 列表 -->
         <div class="list" v-if="HomeRecommendstitle[0]">
           <template v-for="item in HomeRecommendstitle[0]">
@@ -55,24 +39,14 @@
               <van-skeleton :loading="skeletonloading" row="2" avatar title>
                 <div class="item-content">
                   <!-- 图片 -->
-                  <van-image
-                    class="image"
-                    :src="item.r.p"
-                    fit="cover"
-                    width="180rem"
-                    @click="gotoCulinaryDetails(item.r.id)"
-                  />
+                  <van-image class="image" :src="item.r.p" fit="cover" width="180rem"
+                    @click="gotoCulinaryDetails(item.r.id)" />
                   <!--标题 -->
                   <div class="title">{{ item.r.stdname }}</div>
                   <!-- 名字 -->
                   <div class="bottom">
                     <div class="let">
-                      <van-image
-                        :src="item.r.a.p"
-                        width="15rem"
-                        fit="cover"
-                        round
-                      />
+                      <van-image :src="item.r.a.p" width="15rem" fit="cover" round />
                       <div class="name">{{ item.r.a.n }}</div>
                     </div>
                     <!-- 收藏 -->

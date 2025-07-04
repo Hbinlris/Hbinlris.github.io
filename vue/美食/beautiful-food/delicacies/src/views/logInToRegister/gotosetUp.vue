@@ -103,6 +103,7 @@ onMounted(() => {
       border-radius: 50rem;
     }
   }
+
   .text {
     text-align: center;
   }
