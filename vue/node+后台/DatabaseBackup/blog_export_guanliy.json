@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "6778ee0095427c7c326cadc9",
+    "password": "123456",
+    "username": "dhbhsglxt",
+    "sup": "true"
+  },
+  {
+    "_id": "67874273eb6e2ef1d54213ce",
+    "username": "newAdmin",
+    "password": "password123",
+    "sup": false
+  },
+  {
+    "_id": "67874569c086326c94fc2ee5",
+    "username": "123",
+    "password": "123",
+    "sup": false
+  },
+  {
+    "_id": "678a057671cafbc45e8bba3b",
+    "username": "1234",
+    "password": "1234",
+    "sup": false
+  }
+]

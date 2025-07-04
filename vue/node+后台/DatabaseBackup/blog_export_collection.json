@@ -1,0 +1,31 @@
+[
+  {
+    "_id": "6777d6ac084fbd7ae91d8a5d",
+    "label": "娱乐",
+    "tags": "99"
+  },
+  {
+    "_id": "6777d6ac084fbd7ae91d8a5f",
+    "label": "美食",
+    "tags": "11"
+  },
+  {
+    "_id": "6777d6ac084fbd7ae91d8a60",
+    "label": "穿搭",
+    "tags": "23"
+  },
+  {
+    "_id": "67823be5817bc99ffd6c7c7f",
+    "label": "探险",
+    "tags": "44"
+  },
+  {
+    "_id": "6784adf5b23bb8ed8165b93d",
+    "label": "旅行",
+    "tags": "66"
+  },
+  {
+    "_id": "67b203186a6c0fd4af4b21e1",
+    "label": "123"
+  }
+]
