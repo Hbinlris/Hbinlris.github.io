@@ -19,4 +19,9 @@ export default defineConfig({
     host: '0.0.0.0',
   },
   base: './',
+   experimental: {
+    renderBuiltUrl(filename: string) {
+      return './' + filename
+    }
+  }
 })

@@ -1,0 +1,37 @@
+{
+  "id": "4762730",
+  "name": "项目",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2675007",
+      "name": "我的",
+      "font_class": "wode",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "3865276",
+      "name": "书本",
+      "font_class": "shuben",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "744100",
+      "name": "书架",
+      "font_class": "shujia",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "15765345",
+      "name": "分类",
+      "font_class": "fenlei",
+      "unicode": "e695",
+      "unicode_decimal": 59029
+    }
+  ]
+}
