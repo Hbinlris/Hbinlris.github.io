@@ -48,7 +48,7 @@
         <p class="age">吃货不是在吃就是在去吃的路上，没时间签名</p>
       </div>
       <div class="right">
-        <van-image width="60rem" height="60rem" src="/luoTianyi.jpg" />
+        <van-image width="60rem" height="60rem" src="/洛天依.jpg" />
       </div>
     </div>
 
@@ -86,10 +86,8 @@
       </div>
     </div>
 
-    <!--   -->
-
     <div class="clickSignIn" v-else>
-      <van-image width="100rem" height="100rem" src="/notLoggedIn.jpg" />
+      <van-image width="100rem" height="100rem" src="/未登录.jpg" />
 
       <!-- 新用户名 -->
       <div class="newUsername">

@@ -298,10 +298,11 @@ const routes = [
 
 ]
 
+// 创建路由器实例
 const router = createRouter({
-  history: createWebHashHistory(),
-  routes
-})
+  history: createWebHashHistory(), // 使用哈希模式
+  routes // （缩写）相当于 routes: routes
+});
 
 router.beforeEach((to, from, next) => {
 
