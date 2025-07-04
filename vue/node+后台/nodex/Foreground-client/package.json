@@ -1,0 +1,29 @@
+{
+  "name": "xhs",
+  "version": "0.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vant/area-data": "^2.0.0",
+    "axios": "^1.7.9",
+    "koa-bodyparser": "^4.4.1",
+    "koa-flash": "^1.0.0",
+    "koa-session": "^6.4.0",
+    "less": "^4.2.1",
+    "mongodb": "^6.12.0",
+    "pinia": "^2.3.0",
+    "vant": "^4.9.15",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "vite": "^6.0.7",
+    "vite-plugin-vue-devtools": "^7.6.8"
+  }
+}

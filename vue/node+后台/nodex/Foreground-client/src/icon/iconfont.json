@@ -1,0 +1,16 @@
+{
+  "id": "4811083",
+  "name": "小红书",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4333450",
+      "name": "添加",
+      "font_class": "tianjia",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    }
+  ]
+}
