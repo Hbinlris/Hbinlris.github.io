@@ -1,0 +1,105 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				// "navigationBarTitleText": "日常",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/wode/wode",
+			"style": {
+				// "navigationBarTitleText": "我的",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/wode/information",
+			"style": {
+				// "navigationBarTitleText": "个人资料",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/wode/NameSignatureModal",
+			"style": {
+				// "navigationBarTitleText": "名字与签名",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/wode/GenderModal",
+			"style": {
+				// "navigationBarTitleText": "性别",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/SetUp/SetUp",
+			"style": {
+				// "navigationBarTitleText": "设置",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/Account/Account",
+			"style": {
+				// "navigationBarTitleText" : "账号管理"
+			}
+		},
+		{
+			"path": "pages/loginenroll/login",
+			"style": {
+				// "navigationBarTitleText" : "登录"
+			}
+		},
+		{
+			"path": "pages/loginenroll/enoll",
+			"style": {
+				// "navigationBarTitleText" : "注册"
+			}
+		},
+		{
+			"path": "pages/Calendar/Calendar",
+			"style": {
+				// "navigationBarTitleText" : 日历"
+			}
+		},
+		{
+			"path": "pages/diary/diary",
+			"style": {
+				// 	"navigationBarTitleText" : "记录"
+			}
+		},
+		{
+			"path": "pages/diary/Viewdiary",
+			"style": {
+				// 	"navigationBarTitleText" : "日记列表"
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#000",
+		"selectedColor": "#ff0000",
+		"backgroundColor": "white",
+
+		"list": [{
+				"pagePath": "pages/index/index",
+				"text": "日常"
+			},
+			{
+				"pagePath": "pages/wode/wode",
+				"text": "我的"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#f9f9f9",
+		"backgroundColor": "#f9f9f9",
+		"navigationStyle": "custom"
+	},
+	"uniIdRouter": {}
+}

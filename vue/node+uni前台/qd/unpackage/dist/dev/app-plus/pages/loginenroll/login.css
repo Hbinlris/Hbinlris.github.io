@@ -1,0 +1,57 @@
+.login[data-v-f3521239] {
+  background-color: #f5f5f5;
+  padding: 1.09375rem 0.625rem 0.625rem 0.625rem;
+}
+.login .edition[data-v-f3521239] {
+  padding: 0.625rem;
+}
+.login .edition .title[data-v-f3521239] {
+  padding: 0.78125rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.login .edition .title .img[data-v-f3521239] {
+  width: 1.40625rem;
+}
+.login .edition .title .img uni-image[data-v-f3521239] {
+  width: 100%;
+  display: block;
+}
+.login .edition .title .titletext[data-v-f3521239] {
+  margin: auto;
+  font-size: 1.25rem;
+}
+.login .edition .emailbox .email[data-v-f3521239] {
+  height: 1.875rem;
+  padding: 0.78125rem;
+  border: 1px solid gainsboro;
+  border-radius: 0.78125rem;
+  margin: 0.625rem 0;
+}
+.login .edition .emailbox .emailerrormassage[data-v-f3521239] {
+  padding-left: 0.46875rem;
+  font-size: 0.78125rem;
+  color: red;
+}
+.login .edition .Passwordbox .passwordNumber[data-v-f3521239] {
+  height: 1.875rem;
+  padding: 0.78125rem;
+  border: 1px solid gainsboro;
+  border-radius: 0.78125rem;
+  margin: 0.625rem 0;
+}
+.login .edition .Passwordbox .Passworderrormassage[data-v-f3521239] {
+  padding-left: 0.46875rem;
+  font-size: 0.78125rem;
+  color: red;
+}
+.login .edition uni-button[data-v-f3521239] {
+  margin: 0.625rem 0;
+}
+.login .edition .forgetenoll[data-v-f3521239] {
+  font-size: 0.9375rem;
+  color: lightcoral;
+  display: flex;
+  justify-content: center;
+}

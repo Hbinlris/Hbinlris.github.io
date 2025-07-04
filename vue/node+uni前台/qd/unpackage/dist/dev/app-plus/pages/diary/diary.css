@@ -1,0 +1,256 @@
+.expression[data-v-9494e573] {
+  width: 100%;
+  overflow: hidden;
+}
+.expression .expression-header[data-v-9494e573] {
+  background-color: #eee;
+  height: 1.5625rem;
+  padding: 0.3125rem 0.625rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.expression .expression-header .expression-header-item[data-v-9494e573] {
+  flex: 1;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.expression .expression-header .active[data-v-9494e573] {
+  background-color: #fff;
+  border-radius: 0.3125rem;
+}
+.expression .expression-content[data-v-9494e573] {
+  background-color: #f8f8f8;
+  width: 100%;
+  height: 18.125rem;
+}
+.expression .expression-content .expression-content-item[data-v-9494e573] {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.expression .expression-content .expression-content-item .emoji-swiper[data-v-9494e573] {
+  flex: 1;
+  width: 100%;
+}
+.expression .expression-content .expression-content-item .emoji-swiper .swiper-page[data-v-9494e573] {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.expression .expression-content .expression-content-item .emoji-swiper .swiper-page .category-title[data-v-9494e573] {
+  text-align: center;
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: #333;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0;
+}
+.expression .expression-content .expression-content-item .emoji-swiper .swiper-page .emoji-scroll[data-v-9494e573] {
+  flex: 1;
+  height: 100%;
+}
+.expression .expression-content .expression-content-item .emoji-swiper .swiper-page .emoji-scroll .emoji-container[data-v-9494e573] {
+  padding: 0.625rem 0 1.25rem 0;
+}
+.expression .expression-content .expression-content-item .emoji-swiper .swiper-page .emoji-scroll .emoji-container .emoji-row[data-v-9494e573] {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.46875rem;
+}
+.expression .expression-content .expression-content-item .emoji-swiper .swiper-page .emoji-scroll .emoji-container .emoji-row .emoji-item[data-v-9494e573] {
+  flex: 1;
+  max-width: 12.5%;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.15625rem;
+  border-radius: 0.25rem;
+  background-color: white;
+  transition: all 0.2s ease;
+}
+.expression .expression-content .expression-content-item .emoji-swiper .swiper-page .emoji-scroll .emoji-container .emoji-row .emoji-item[data-v-9494e573]:last-child {
+  margin-right: 0;
+}
+.expression .expression-content .expression-content-item .emoji-swiper .swiper-page .emoji-scroll .emoji-container .emoji-row .emoji-item[data-v-9494e573]:active {
+  background-color: #e0e0e0;
+  transform: scale(0.9);
+}
+.expression .expression-content .expression-content-item .emoji-swiper .swiper-page .emoji-scroll .emoji-container .emoji-row .emoji-item .emoji[data-v-9494e573] {
+  font-size: 1.25rem;
+}
+.expression .expression-content .expression-content-item .swiper-indicators[data-v-9494e573] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.625rem;
+  background-color: white;
+  border-top: 1px solid #eee;
+  flex-shrink: 0;
+}
+.expression .expression-content .expression-content-item .swiper-indicators .indicator-dot[data-v-9494e573] {
+  margin: 0 0.3125rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.625rem;
+  background-color: #f0f0f0;
+  transition: all 0.3s ease;
+}
+.expression .expression-content .expression-content-item .swiper-indicators .indicator-dot .dot-text[data-v-9494e573] {
+  font-size: 0.75rem;
+  color: #999;
+}
+.expression .expression-content .expression-content-item .swiper-indicators .indicator-dot.active[data-v-9494e573] {
+  background-color: #007aff;
+}
+.expression .expression-content .expression-content-item .swiper-indicators .indicator-dot.active .dot-text[data-v-9494e573] {
+  color: white;
+}
+
+.diary[data-v-274033c8] {
+  background-color: #f5f5f5;
+  padding: 1.09375rem 0.625rem 1.5rem 0.625rem;
+  margin: 0;
+}
+.diary .edition[data-v-274033c8] {
+  background-color: #f9f9f9;
+  padding: 0.625rem;
+  border-radius: 0.78125rem;
+}
+.diary .edition .title[data-v-274033c8] {
+  padding: 0.78125rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.diary .edition .title .titletext[data-v-274033c8] {
+  margin: auto;
+  font-size: 1.25rem;
+}
+.diary .edition .title .img[data-v-274033c8] {
+  width: 1.40625rem;
+}
+.diary .edition .title .img uni-image[data-v-274033c8] {
+  width: 100%;
+  display: block;
+}
+.diary .edition .content[data-v-274033c8] {
+  margin-top: 1.5625rem;
+  width: 100%;
+}
+.diary .edition .content .filebox[data-v-274033c8] {
+  display: flex;
+}
+.diary .edition .content .filebox .file[data-v-274033c8] {
+  width: 4.6875rem;
+  height: 4.6875rem;
+  border-radius: 0.46875rem;
+  background-color: #e1e1e1;
+  margin-right: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.diary .edition .content .filebox .file .camera-text .camera[data-v-274033c8] {
+  width: 1.40625rem;
+  display: block;
+  margin: auto;
+}
+.diary .edition .content .filebox .file .camera-text .text[data-v-274033c8] {
+  font-style: 0.46875rem;
+}
+.diary .edition .content .filebox .fileimagebox[data-v-274033c8] {
+  width: 4.6875rem;
+  height: 4.6875rem;
+  margin-right: 0.625rem;
+  position: relative;
+}
+.diary .edition .content .filebox .fileimagebox .fileimage[data-v-274033c8] {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.46875rem;
+}
+.diary .edition .content .filebox .fileimagebox .deleteimage[data-v-274033c8] {
+  color: red;
+  position: absolute;
+  right: 0.3125rem;
+  top: 0;
+  font-size: 1.09375rem;
+}
+.diary .edition .content .diary-title[data-v-274033c8] {
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 0.625rem;
+}
+.diary .edition .content .diary-title .titlename[data-v-274033c8] {
+  font-size: 1.40625rem;
+}
+.diary .edition .content .diary-text .text[data-v-274033c8] {
+  width: 100%;
+  min-height: 21.875rem;
+}
+.diary .edition .word[data-v-274033c8] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.625rem;
+}
+.diary .edition .word .number[data-v-274033c8] {
+  color: #ccc;
+  border-radius: 0.375rem;
+  padding: 0.1875rem 0.375rem;
+}
+.diary .edition .word .expression[data-v-274033c8] {
+  border-radius: 50%;
+}
+.diary .edition .word .expression .smile[data-v-274033c8] {
+  width: 1.40625rem;
+  display: block;
+  height: 1.40625rem;
+}
+.diary .expression-modal[data-v-274033c8] {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 45vh;
+  background-color: white;
+  border-top-left-radius: 0.9375rem;
+  border-top-right-radius: 0.9375rem;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 100;
+  pointer-events: none;
+}
+.diary .expression-modal.show[data-v-274033c8] {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.diary .expression-modal .expression-header[data-v-274033c8] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9375rem 1.25rem 0.625rem;
+  border-bottom: 1px solid #eee;
+}
+.diary .expression-modal .expression-header .expression-title[data-v-274033c8] {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+.diary .expression-modal .expression-header .expression-close[data-v-274033c8] {
+  font-size: 1.40625rem;
+  cursor: pointer;
+  color: #666;
+  width: 1.875rem;
+  height: 1.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+.diary .expression-modal .expression-header .expression-close[data-v-274033c8]:active {
+  background-color: #f0f0f0;
+}

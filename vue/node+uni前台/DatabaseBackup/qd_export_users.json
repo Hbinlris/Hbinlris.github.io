@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "680c3f60f1ee90722f226dcd",
+    "email": "chu8757579795@163.com",
+    "userID": "519399372456",
+    "formattedTime": "2025/04/26 10:05:20",
+    "password": "$2b$10$jLRzarbo6wnvU35GiwgJT.o3W49DAUuWk.MtdkeTnPksGVSMVMqme",
+    "avatar": "http://192.168.82.47:8080/1745633316960.png",
+    "username": "大师傅士大夫撒旦",
+    "gender": "女",
+    "signature": "双方都是"
+  },
+  {
+    "_id": "6863fc0baaf3c4e03b0caa0a",
+    "email": "chu875757979835@163.com",
+    "userID": "882397189835",
+    "formattedTime": "2025/07/01 23:17:31",
+    "password": "$2b$10$/qPKXFqkEB/vA8TpBNn39.aQJGFOs4nCT7hAgtFmC/eDklJqUvxuK",
+    "avatar": "http://192.168.82.47:8080/1751383129255.jpg",
+    "username": "yyyync",
+    "gender": "男",
+    "signature": "25898"
+  }
+]

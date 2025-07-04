@@ -1,0 +1,154 @@
+.Calendar[data-v-00d8a1e0] {
+  background-color: #f5f5f5;
+  padding: 1.09375rem 0.625rem 0.625rem 0.625rem;
+}
+.Calendar .edition[data-v-00d8a1e0] {
+  background-color: #f9f9f9;
+  padding: 0.625rem;
+  border-radius: 0.78125rem;
+}
+.Calendar .title[data-v-00d8a1e0] {
+  padding: 0.78125rem;
+  display: flex;
+  align-items: center;
+}
+.Calendar .title .img[data-v-00d8a1e0] {
+  width: 1.40625rem;
+}
+.Calendar .title .img uni-image[data-v-00d8a1e0] {
+  width: 100%;
+  display: block;
+}
+.Calendar .title .titletext[data-v-00d8a1e0] {
+  margin: auto;
+  font-size: 1.25rem;
+}
+.Calendar .header[data-v-00d8a1e0] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.625rem 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.Calendar .header .arrow[data-v-00d8a1e0] {
+  padding: 0 0.9375rem;
+  font-size: 1.125rem;
+  color: #666;
+}
+.Calendar .header .arrow uni-image[data-v-00d8a1e0] {
+  width: 0.9375rem;
+  height: 0.9375rem;
+}
+.Calendar .weekdays[data-v-00d8a1e0] {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.625rem 0;
+  font-size: 0.875rem;
+  color: #666;
+}
+.Calendar .weekdays .weekday[data-v-00d8a1e0] {
+  width: 14.28%;
+  text-align: center;
+}
+.Calendar .days[data-v-00d8a1e0] {
+  display: flex;
+  flex-wrap: wrap;
+}
+.Calendar .days .day[data-v-00d8a1e0] {
+  width: 14.28%;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.Calendar .days .day .day-number[data-v-00d8a1e0] {
+  font-size: 0.875rem;
+}
+.Calendar .days .day .marker[data-v-00d8a1e0] {
+  position: absolute;
+  bottom: 0.3125rem;
+  width: 0.3125rem;
+  height: 0.3125rem;
+  border-radius: 50%;
+  background-color: #f56c6c;
+}
+.Calendar .days .day[data-v-00d8a1e0]:not(.current-month) {
+  color: #ccc;
+}
+.Calendar .days .day.today .day-number[data-v-00d8a1e0] {
+  color: #409eff;
+  font-weight: bold;
+}
+.Calendar .days .day.selected[data-v-00d8a1e0] {
+  background-color: #409eff;
+  border-radius: 50%;
+}
+.Calendar .days .day.selected .day-number[data-v-00d8a1e0] {
+  color: white;
+}
+.Calendar .days .day.selected .marker[data-v-00d8a1e0] {
+  background-color: white;
+}
+.Calendar .days .day.marked:not(.selected) .day-number[data-v-00d8a1e0] {
+  color: #f56c6c;
+  font-weight: bold;
+}
+.Calendar .days .day.marked:not(.selected) .marker[data-v-00d8a1e0] {
+  background-color: #f56c6c;
+  display: block;
+}
+.Calendar .checkin-details[data-v-00d8a1e0] {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border-radius: 0.625rem 0.625rem 0 0;
+  padding: 0.9375rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+.Calendar .checkin-details .details-header[data-v-00d8a1e0] {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.9375rem;
+  padding-bottom: 0.625rem;
+  border-bottom: 0.03125rem solid #eee;
+}
+.Calendar .checkin-details .details-header .details-title[data-v-00d8a1e0] {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+.Calendar .checkin-details .details-header .details-close[data-v-00d8a1e0] {
+  font-size: 1.5625rem;
+  color: #999;
+  padding: 0 0.625rem;
+}
+.Calendar .checkin-details .details-content .checkin-record[data-v-00d8a1e0] {
+  background-color: #f5f5f5;
+  border-radius: 0.46875rem;
+  margin-bottom: 0.46875rem;
+  padding: 0.46875rem;
+}
+.Calendar .checkin-details .details-content .checkin-record .record-header .record-time[data-v-00d8a1e0] {
+  margin-right: 0.46875rem;
+}
+.Calendar .checkin-details .details-content .checkin-record .record-header .record-index .number[data-v-00d8a1e0] {
+  color: orangered;
+}
+.Calendar .checkin-details .details-content .checkin-record .detail-item[data-v-00d8a1e0] {
+  display: flex;
+  font-size: 0.875rem;
+}
+.Calendar .checkin-details .details-content .checkin-record .detail-item .detail-label[data-v-00d8a1e0] {
+  color: #666;
+  width: 4.6875rem;
+}
+.Calendar .checkin-details .details-content .checkin-record .detail-item .detail-value[data-v-00d8a1e0] {
+  flex: 1;
+  color: #333;
+}

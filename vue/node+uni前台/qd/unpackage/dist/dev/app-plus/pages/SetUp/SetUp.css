@@ -1,0 +1,45 @@
+.Set-up[data-v-af4a7c07] {
+  background-color: #f5f5f5;
+  padding: 1.09375rem 0.625rem 0.625rem 0.625rem;
+}
+.Set-up .edition[data-v-af4a7c07] {
+  background-color: #f9f9f9;
+  padding: 0.625rem;
+  border-radius: 0.78125rem;
+}
+.Set-up .edition .title[data-v-af4a7c07] {
+  padding: 0.78125rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.Set-up .edition .title .img[data-v-af4a7c07] {
+  width: 1.40625rem;
+}
+.Set-up .edition .title .img uni-image[data-v-af4a7c07] {
+  width: 100%;
+  display: block;
+}
+.Set-up .edition .title .titletext[data-v-af4a7c07] {
+  margin: auto;
+  font-size: 1.25rem;
+}
+.Set-up .edition .Accountbox[data-v-af4a7c07] {
+  background-color: white;
+  padding: 0.78125rem 0.9375rem;
+  margin: 0.78125rem 0;
+  border-radius: 0.46875rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Set-up .edition .Accountbox .text[data-v-af4a7c07] {
+  font-weight: bold;
+}
+.Set-up .edition .Accountbox .img[data-v-af4a7c07] {
+  width: 0.625rem;
+}
+.Set-up .edition .Accountbox .img uni-image[data-v-af4a7c07] {
+  width: 100%;
+  display: block;
+}

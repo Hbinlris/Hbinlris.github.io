@@ -1,0 +1,50 @@
+const Router = require('@koa/router');
+// 身份验证
+const authtwo = require('../verify/authtwo');
+// 设置前缀为'/authtwo'
+const router = new Router({ prefix: '/authtwo' });
+
+const { users, diary } = require('../../mongodb/mongodb');
+
+router.get('/getdiary', authtwo, async (ctx) => {
+  console.log('diary请求体:', ctx.request.body);
+
+  const { email } = ctx.state.user;
+
+  try {
+    const user = await users.findOne({ email });
+    console.log('diaryday-email:', user);
+    if (!user) {
+      ctx.status = 404;
+      ctx.body = { code: 404, message: '用户不存在' };
+      return;
+    }
+
+    // 查询数据
+    const diaryday = await diary.find({ userId: user._id }).toArray();
+    console.log('查找签到结果:', diaryday);
+
+    if (diaryday) {
+      ctx.status = 200;
+      ctx.body = {
+        code: 200,
+        message: '日记查询成功',
+        date: diaryday.date,
+        diarydata: diaryday.map(item => ({
+          ...item.diarydata // 展diaryday内的所有字段
+        })),
+        count: diaryday.length
+      };
+    } else {
+      ctx.status = 400;
+      ctx.body = { code: 400, message: '日记查询失败' };
+    }
+
+  } catch (error) {
+    console.error('查询失败:', error);
+    ctx.status = 500;
+    ctx.body = { code: 500, message: '服务器错误' };
+  }
+
+})
+module.exports = router;

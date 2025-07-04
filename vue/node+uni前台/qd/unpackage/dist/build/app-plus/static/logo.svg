@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bookGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9A9E"/>
+      <stop offset="100%" stop-color="#FAD0C4"/>
+    </linearGradient>
+    <linearGradient id="pageGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F5F5F5"/>
+    </linearGradient>
+    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A1C4FD"/>
+      <stop offset="100%" stop-color="#C2E9FB"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="512" cy="512" r="512" fill="#F8F8F8"/>
+  
+  <!-- Time ring -->
+  <path d="M512 128a384 384 0 1 1 0 768 384 384 0 0 1 0-768z" fill="none" stroke="url(#ringGradient)" stroke-width="16" stroke-dasharray="100 20" opacity="0.8"/>
+  
+  <!-- Book cover -->
+  <path d="M384 256h320a64 64 0 0 1 64 64v448a64 64 0 0 1-64 64H384a64 64 0 0 1-64-64V320a64 64 0 0 1 64-64z" fill="url(#bookGradient)" rx="8"/>
+  
+  <!-- Open pages -->
+  <path d="M448 320h256v448H448z" fill="url(#pageGradient)" rx="4"/>
+  <path d="M448 320h192v448H448z" fill="#FFF" rx="4"/>
+  
+  <!-- Pen tip -->
+  <path d="M704 384l64-64 64 64-64 64z" fill="#4A4A4A"/>
+  <path d="M768 320l32-32 32 32-32 32z" fill="#2C2C2C" opacity="0.8"/>
+  
+  <!-- Page lines -->
+  <path d="M480 384h160v16H480zM480 432h160v16H480zM480 480h160v16H480zM480 528h160v16H480zM480 576h160v16H480z" fill="#E0E0E0"/>
+</svg>

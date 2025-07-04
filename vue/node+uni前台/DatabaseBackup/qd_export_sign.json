@@ -1,0 +1,46 @@
+[
+  {
+    "_id": "680c3f8df1ee90722f226dce",
+    "userId": "680c3f60f1ee90722f226dcd",
+    "checkInData": {
+      "timestamp": 1745633159910,
+      "date": "2025年04月26日 10小时05分钟59秒",
+      "longitude": 112.47337023848523,
+      "latitude": 23.094075010409636,
+      "remark": "djdjdjj"
+    }
+  },
+  {
+    "_id": "680c3f90f1ee90722f226dcf",
+    "userId": "680c3f60f1ee90722f226dcd",
+    "checkInData": {
+      "timestamp": 1745633167444,
+      "date": "2025年04月26日 10小时06分钟07秒",
+      "longitude": null,
+      "latitude": null,
+      "remark": ""
+    }
+  },
+  {
+    "_id": "6863fc80aaf3c4e03b0caa0b",
+    "userId": "6863fc0baaf3c4e03b0caa0a",
+    "checkInData": {
+      "timestamp": 1751383163480,
+      "date": "2025年07月01日 23小时19分钟23秒",
+      "longitude": 113.463388,
+      "latitude": 22.54737,
+      "remark": "多少粉丝巅峰赛"
+    }
+  },
+  {
+    "_id": "6863fc9caaf3c4e03b0caa0c",
+    "userId": "6863fc0baaf3c4e03b0caa0a",
+    "checkInData": {
+      "timestamp": 1751383196148,
+      "date": "2025年07月01日 23小时19分钟56秒",
+      "longitude": null,
+      "latitude": null,
+      "remark": ""
+    }
+  }
+]

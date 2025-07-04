@@ -1,0 +1,59 @@
+.Account[data-v-8d5bba39] {
+  padding: 1.09375rem 0.625rem 0.625rem 0.625rem;
+}
+.Account .edition[data-v-8d5bba39] {
+  background-color: #f9f9f9;
+  padding: 0.625rem;
+  border-radius: 0.78125rem;
+}
+.Account .edition .title[data-v-8d5bba39] {
+  padding: 0.78125rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.Account .edition .title .img[data-v-8d5bba39] {
+  width: 1.40625rem;
+}
+.Account .edition .title .img uni-image[data-v-8d5bba39] {
+  width: 100%;
+  display: block;
+}
+.Account .edition .title .titletext[data-v-8d5bba39] {
+  margin: auto;
+  font-size: 1.25rem;
+}
+.Account .edition .Accountlist[data-v-8d5bba39] {
+  background-color: white;
+  padding: 0.78125rem 0.9375rem;
+  margin: 0.78125rem 0;
+  border-radius: 0.46875rem;
+  height: 1.5625rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Account .edition .Accountlist .text[data-v-8d5bba39] {
+  font-weight: bold;
+}
+.Account .edition .Accountlist .img[data-v-8d5bba39] {
+  display: flex;
+  align-items: center;
+}
+.Account .edition .Accountlist .img uni-text[data-v-8d5bba39] {
+  color: gray;
+}
+.Account .edition .Accountlist .img uni-image[data-v-8d5bba39] {
+  margin-left: 0.46875rem;
+  width: 0.625rem;
+  display: block;
+}
+.Account .edition .returnlogin[data-v-8d5bba39],
+.Account .edition .gologin[data-v-8d5bba39] {
+  text-align: center;
+  padding: 0.78125rem 0;
+}
+.Account .edition .returnlogin[data-v-8d5bba39]:active,
+.Account .edition .gologin[data-v-8d5bba39]:active {
+  color: red;
+}
