@@ -20,13 +20,16 @@
 #   - ".cache/"
 
 exclude:
-  - node_modules/
-  - "*/node_modules/"
-  - "**/node_modules/"
-  - "vue/*/node_modules/"
-  - "vue/**/node_modules/"
+  - node_modules
+  - "*/node_modules"
+  - "**/node_modules"
+  - "vue/*/node_modules"
+  - "vue/**/node_modules"
+  - "**/node_modules/**"
+  - "vue/**/node_modules/**"
 
-  
+
+
 # # 只包含需要的文件
 # include:
 #   - index.html
