@@ -28,14 +28,24 @@
 ![后台管理](vue/图片/社交app后台系统图片/后台管理员.jpg)
 ![用户管理](vue/图片/社交app后台系统图片/用户首页.jpg)
 
-## 🌐 在线演示
+## 🌐 在线演示图片
 
 在vue文件夹中有一个图片文件夹，可以通过以下链接查看运行效果：
 
 - [美食应用展示](https://hbinlris.github.io/vue/图片/DeliciousFood.html)
 - [日记应用展示](https://hbinlris.github.io/vue/图片/diary.html)  
 - [阅读应用展示](https://hbinlris.github.io/vue/图片/reading.html)
+- [小程序展示](https://hbinlris.github.io/vue/图片/miniProgram.html)
 - [后台系统展示](https://hbinlris.github.io/vue/图片/backend.html)
+
+## 🌐 在线演示视频
+
+- [美食应用展示](https://hbinlris.github.io/vue/视频效果/DeliciousFood.html)
+- [日记应用展示](https://hbinlris.github.io/vue/视频效果/diary.html)  
+- [阅读应用展示](https://hbinlris.github.io/vue/视频效果/reading.html)
+- [小程序展示](https://hbinlris.github.io/vue/视频效果/miniProgram.html)
+- [后台系统展示](https://hbinlris.github.io/vue/视频效果/backend.html)
+
 
 ## 🛠️ 技术栈
 
