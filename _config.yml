@@ -1,39 +1,49 @@
 # Jekyll 配置文件
 
 # 排除不需要构建的目录和文件
+# exclude:
+#   - node_modules/
+#   - "*/node_modules/"
+#   - "**/node_modules/"
+#   - "vue/*/node_modules/"
+#   - "vue/**/node_modules/"
+#   - package.json
+#   - package-lock.json
+#   - "*.json"
+#   - "*.md"
+#   - ".gitignore"
+#   - ".vscode/"
+#   - ".idea/"
+#   - "*.log"
+#   - "*.tmp"
+#   - "*.temp"
+#   - ".cache/"
+
 exclude:
   - node_modules/
   - "*/node_modules/"
   - "**/node_modules/"
-  - vue/
-  - bootstrap/
-  - domo/
-  - html/
-  - package.json
-  - package-lock.json
-  - "*.json"
-  - "*.md"
-  - ".gitignore"
-  - ".vscode/"
-  - ".idea/"
-  - "*.log"
-  - "*.tmp"
-  - "*.temp"
-  - ".cache/"
-  - "dist/"
-  - "build/"
+  - "vue/*/node_modules/"
+  - "vue/**/node_modules/"
 
-# 只包含需要的文件
-include:
-  - index.html
-  - food.html
-  - music.html
-  - reading.html
-  - "*.css"
-  - "*.js"
-  - "*.png"
-  - "*.jpg"
-  - "*.gif"
+  
+# # 只包含需要的文件
+# include:
+#   - index.html
+#   - food.html
+#   - music.html
+#   - reading.html
+#   - "vue/**/*.html"
+#   - "vue/**/*.css"
+#   - "vue/**/*.js"
+#   - "vue/**/*.png"
+#   - "vue/**/*.jpg"
+#   - "vue/**/*.gif"
+#   - "*.css"
+#   - "*.js"
+#   - "*.png"
+#   - "*.jpg"
+#   - "*.gif"
 
 # 基本站点配置
 title: "Git Learn 项目展示"
