@@ -46,6 +46,7 @@
 - [阅读应用展示](https://hbinlris.github.io/vue/视频效果/reading.html)
 - [小程序展示](https://hbinlris.github.io/vue/视频效果/miniProgram.html)
 - [后台系统展示](https://hbinlris.github.io/vue/视频效果/backend.html)
+- [日记应用展示](https://hbinlris.github.io/vue/视频效果/diary.html)
 
 
 ## 🛠️ 技术栈
