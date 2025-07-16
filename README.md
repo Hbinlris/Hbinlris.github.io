@@ -42,8 +42,7 @@
 
 通过以下链接查看运行效果视频：
 
-- [美食应用展示](https://hbinlris.github.io/vue/视频效果/DeliciousFood.html)
-- [日记应用展示](https://hbinlris.github.io/vue/视频效果/diary.html)  
+- [响应式设计展示](https://hbinlris.github.io/bootstrap/赌场/bootstrap.html)
 - [阅读应用展示](https://hbinlris.github.io/vue/视频效果/reading.html)
 - [小程序展示](https://hbinlris.github.io/vue/视频效果/miniProgram.html)
 - [后台系统展示](https://hbinlris.github.io/vue/视频效果/backend.html)
